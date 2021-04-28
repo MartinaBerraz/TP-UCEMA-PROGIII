@@ -95,20 +95,42 @@ input[type=submit]:hover {
     width: 100%;
     margin-top: 0;
   }
+
+
 }
 
-.col-sm
+.container-fluid h1
 {
-  padding-top: 2vw;
-  padding-bottom: 4vw;
+  text-align: left;
+  margin-top: 6rem;
+  padding-bottom: 7%;
+  padding-left: 10%;
+  flex-shrink: 1;
+  font-size: 4vw;
+  min-height: 10px;
+  max-height: 10px;
 }
 
-.col-sm img
+.container-fluid
+{
+  text-align: center;
+  margin-bottom: 5vw;
+
+}
+
+.container-fluid img
 {
   width: 10vw;
+  min-width: 100px;
   border-radius: 50%;
   margin-bottom: 3vw;
+  text-align: center;
+  justify-items: center;
 
+}
+.container-fluid p
+{
+  padding-bottom: 3vw;
 }
 
 .site-footer
@@ -186,6 +208,9 @@ input[type=submit]:hover {
   border-radius:100%;
   background-color:#33353d
 }
+
+
+
 .copyright-text
 {
   margin:0
