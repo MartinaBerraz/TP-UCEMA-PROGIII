@@ -2,7 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
-.nav-link
+.nav
 {
   flex-shrink: 1;
   justify-items: right;
@@ -10,7 +10,13 @@
   text-align: right;
   text-anchor: end;
   justify-content: end;
+  display: flex;
 }
+.nav-link
+{
+  color: #DADADA;
+}
+
 a:hover
 {
   color: #DADADA;
@@ -39,6 +45,7 @@ a:hover
   margin-bottom: 3rem;
   flex-shrink: 1;
   font-size: 2vw;
+  min-font-size: 16px;
 }
 
 * {
@@ -56,7 +63,8 @@ input[type=text], select, textarea {
 }
 
 input[type=submit] {
-  background-color: #730E15;
+  /*background-color: #730E15;*/
+  background-color: darkolivegreen;
   color: white;
   padding: 12px 20px;
   border: none;
@@ -65,6 +73,7 @@ input[type=submit] {
 
 input[type=submit]:hover {
   background-color: #2E2F30;
+  text-decoration-color: #DADADA;
 }
 
 /* Style the container/contact section */
@@ -72,15 +81,10 @@ input[type=submit]:hover {
   border-radius: 5px;
   background-color: #f2f2f2;
   padding: 10px;
+  align-content: center;
 }
 
-/* Create two columns that float next to eachother */
-.column {
-  float: left;
-  width: 50%;
-  margin-top: 6px;
-  padding: 20px;
-}
+
 
 /* Clear floats after the columns */
 .row:after {
@@ -102,13 +106,12 @@ input[type=submit]:hover {
 .container-fluid h1
 {
   text-align: left;
-  margin-top: 6rem;
-  padding-bottom: 7%;
+  margin-top: 4vw;
+  margin-bottom: 4vw;
   padding-left: 10%;
-  flex-shrink: 1;
-  font-size: 4vw;
-  min-height: 10px;
-  max-height: 10px;
+  flex-shrink: 2;
+  min-font-size: 10px;
+  max-font-size: 100px;
 }
 
 .container-fluid
@@ -133,85 +136,67 @@ input[type=submit]:hover {
   padding-bottom: 3vw;
 }
 
-.site-footer
+
+/* CSS for Footer ***/
+.dc-footer
 {
-  padding-top: 5vw;
+  padding: 1vw 1VW;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #2E2F30;
+  flex-wrap: nowrap;
+  width: 100%;
+  height: 135px;
 }
 
-.site-footer
-{
-  background-color:#26272b;
-  padding:45px 0 20px;
-  font-size:15px;
-  line-height:24px;
-  color:#737373;
+.dc-social
+{display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: nowrap;
 }
-.site-footer hr
-{
-  border-top-color:#bbb;
-  opacity:0.5
-}
-.site-footer hr.small
-{
-  margin:20px 0
-}
-.site-footer h6
-{
+
+.“dc-social-icon{
+  margin: 0 12px 0 0;
   color:#fff;
-  font-size:16px;
-  text-transform:uppercase;
-  margin-top:5px;
-  letter-spacing:2px
+  font-size: 1.25rem;
 }
-.site-footer a
-{
-  color:#737373;
+
+.“dc-footer-list\"{
+  text-align: center;
+  color:#ffffff;
+
 }
-.site-footer a:hover
-{
-  color:#3366cc;
-  text-decoration:none;
+
+.copyright-text{
+  color:#ffffff;
+  margin-top: 3px;
 }
-.footer-links
-{
-  padding-left:0;
-  list-style:none
+
+a:link {
+  color: white;
+
 }
-.footer-links li
-{
-  display:block
+.“dc-footer-list-item{
+  margin: 8px;
+
 }
-.footer-links a
+
+/* CSS footer end */
+
+.form-contact
 {
-  color:#737373
+  padding-left: 15%;
+  padding-right: 15%;
 }
-.footer-links a:active,.footer-links a:focus,.footer-links a:hover
+
+.btn
 {
-  color:#3366cc;
-  text-decoration:none;
-}
-.footer-links.inline li
-{
-  display:inline-block
-}
-.site-footer .social-icons
-{
-  text-align:right
-}
-.site-footer .social-icons a
-{
-  width:40px;
-  height:40px;
-  line-height:40px;
-  margin-left:6px;
-  margin-right:0;
-  border-radius:100%;
-  background-color:#33353d
+  display: block;
+  text-align: end;
 }
 
 
-
-.copyright-text
-{
-  margin:0
-}
