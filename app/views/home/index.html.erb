@@ -1,5 +1,125 @@
-<h1>Te damos la bienvenida a QueMePongo</h1>
+<head>
+  <title Dresscode homepage></title>
+  <link href="home.scss" rel="stylesheet">
+  <script src="https://use.fontawesome.com/aa20e20d69.js"></script> <!--FS-->
+  <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+  <meta name="description" title="Software capaz de escogerle al usuario un atuendo en base al clima y la ocasión">
+  <script src="https://use.fontawesome.com/aa20e20d69.js"></script> <!--FS-->
+</head>
 
-...resto de nuestra preciosa landing...
+<body>
+<section class="container">
+  <nav class="fixed-top navbar navbar-expand-lg navbar-dark bg-dark">
+    <h4 class="title">
+      <a class="navbar-brand justify-content-start" href="#">Dresscode</a>
+    </h4>
+    <ul class="nav"> <!--También se podría hacer con flex-->
+      <li class="nav-item">
+        <a class="nav-link" href="#">Home</a>
+      </li>
+      <li class="nav-item">
 
-<%= link_to 'Mirá acá tus prendas', :prendas %>
+        <%= link_to '¿Qué me pongo?', :prendas %>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">¿Quiénes somos?</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Contactanos</a>
+      </li>
+    </ul>
+  </nav>
+</section>
+
+<section class="cont-img">
+  <img src="<%= asset_path 'pexels-august-de-richelieu-4427816.jpg' %>"> <!-- Es un comando de ruby -->
+</section>
+
+<section class="container">
+  <hr>
+  <p class="intro">En DressCode nos encargamos que nuestros clientes se vistan de la mejor manera
+    dependiendo las condiciones climaticas de cada día, brindamos prendas de
+    primera calidad y usamos los mejores criterios asesorandonos con los grandes profesionales de la moda.
+  </p>
+  <hr>
+</section>
+<section title="Quiénes somos?" >
+
+  <div class="container-fluid">
+    <h1>Quiénes somos?</h1>
+    <div class="row">
+      <div class="col-lg-3 col-md-6">
+        <img src="<%= asset_path 'p1' %>">
+        <h4>
+          Mateo Rial
+        </h4>
+        <p>Lider del area de desarrollo</p>
+
+      </div>
+      <div class="col-lg-3 col-md-6">
+        <img src="<%= asset_path 'p2' %>">
+        <h4>
+          Florencia Skiba
+        </h4>
+        <p>Lider del area de Marketing & Sales</p>
+
+
+      </div>
+      <div class="col-lg-3 col-md-6">
+        <img src="<%= asset_path 'p3' %>">
+        <h4>
+          Mariano Gonzalez Racig
+        </h4>
+        <p> Lider del area  Arquitectura</p>
+
+      </div>
+      <div class="col-lg-3 col-md-6">
+        <img src="<%= asset_path 'p4' %>">
+        <h4>
+          Martina Berraz
+        </h4>
+        <p>Lider del area Centro de Servicios</p>
+
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<div class="cont-contact">
+  <section class="form-contact">
+    <div style="text-align:center">
+      <h2>Contactanos</h2>
+      <p>Envía un mensaje:</p>
+    </div>
+    <form action="/action_page.php">
+      <label for="fname">Nombre</label>
+      <input type="text" id="fname" name="firstname" placeholder="Su nombre..">
+      <label for="lname">Apellido</label>
+      <input type="text" id="lname" name="lastname" placeholder="Su apellido..">
+      <label for="country">Pais</label>
+      <select id="country" name="country">
+        <option value="Argentina">Argentina</option>
+        <option value="Chile">Chile</option>
+        <option value="Uruguay">Uruguay</option>
+      </select>
+      <label for="subject">Asunto</label>
+      <textarea id="subject" name="subject" placeholder="Comentarios.." style="height:170px"></textarea>
+
+
+    </form>
+    <div class="btn">
+      <input type="submit" value="Submit">
+    </div>
+  </section>
+</div>
+
+</body>
+
+
+
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-     J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+

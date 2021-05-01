@@ -1,3 +1,202 @@
-// Place all the styles related to the home controller here.
+// Place all the styles related to the Home controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+.nav
+{
+  flex-shrink: 1;
+  justify-items: right;
+  color: #999999;
+  text-align: right;
+  text-anchor: end;
+  justify-content: end;
+  display: flex;
+
+}
+
+.nav-link
+{
+  color: #DADADA;
+}
+
+a:hover
+{
+  color: #DADADA;
+}
+.navbar.navbar-brand
+{
+  justify-self: left;
+}
+
+.cont-img img{
+  width: 100%;
+  height: auto;
+
+}
+@supports(object-fit: cover){
+  .box img{
+    height: 100%;
+    object-fit: cover;
+    object-position: center center;
+  }
+}
+.intro
+{
+  text-align: center;
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+  flex-shrink: 1;
+  font-size: 2vw;
+  min-font-size: 16px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* Style inputs */
+input[type=text], select, textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  margin-top: 6px;
+  margin-bottom: 16px;
+  resize: vertical;
+}
+
+input[type=submit] {
+  /*background-color: #730E15;*/
+  background-color: darkolivegreen;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color: #2E2F30;
+  text-decoration-color: #DADADA;
+}
+
+/* Style the container/contact section */
+.cont-contact {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 10px;
+  align-content: center;
+}
+
+
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .column, input[type=submit] {
+    width: 100%;
+    margin-top: 0;
+  }
+
+
+}
+
+.container-fluid h1
+{
+  text-align: left;
+  margin-top: 4vw;
+  margin-bottom: 4vw;
+  padding-left: 10%;
+  flex-shrink: 2;
+  min-font-size: 10px;
+  max-font-size: 100px;
+}
+
+.container-fluid
+{
+  text-align: center;
+  margin-bottom: 5vw;
+
+}
+
+.container-fluid img
+{
+  width: 10vw;
+  min-width: 100px;
+  border-radius: 50%;
+  margin-bottom: 3vw;
+  text-align: center;
+  justify-items: center;
+
+}
+.container-fluid p
+{
+  padding-bottom: 3vw;
+}
+
+
+/* CSS for Footer ***/
+.dc-footer
+{
+  padding: 1vw 1VW;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #2E2F30;
+  flex-wrap: nowrap;
+  width: 100%;
+  height: 135px;
+}
+
+.dc-social
+{display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+}
+
+.“dc-social-icon{
+  margin: 0 12px 0 0;
+  color:#fff;
+  font-size: 1.25rem;
+}
+
+.“dc-footer-list\"{
+  text-align: center;
+  color:#ffffff;
+
+}
+
+.copyright-text{
+  color:#ffffff;
+  margin-top: 3px;
+}
+
+a:link {
+  color: white;
+
+}
+.“dc-footer-list-item{
+  margin: 8px;
+
+}
+
+/* CSS footer end */
+
+.form-contact
+{
+  padding-left: 15%;
+  padding-right: 15%;
+}
+
+.btn
+{
+  display: block;
+  text-align: end;
+}

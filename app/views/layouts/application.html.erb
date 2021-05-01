@@ -9,11 +9,25 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
-    <%= yield %>
+
+
+     <%= yield %>
 
     <footer>
-      Copyright <%= DateTime.now.year %>
+      <div class="dc-footer">
+        <div class="dc-social">
+          <a class=“dc-social-icon hover" target="_blank" href=“#"><i class="fa fa-fw fa-facebook"></i></a>
+          <a class=“dc-social-icon hover" target="_blank" href=“#"><i class="fa fa-fw fa-twitter"></i></a>
+          <a class=“dc-social-icon hover" target="_blank" href=“#"><i class="fa fa-fw fa-linkedin"></i></a>
+        </div>
+        <div class=“dc-footer-list">
+          <a class=“dc-footer-list-item hover" href=“#l”>Inicio</a>
+          <a class=“dc-footer-list-item hover" href=“#l”>Servicio al Cliente</a>
+          <a class=“dc-footer-list-item hover" href=“#”>Privacy</a>
+          <p class="copyright-text">Copyright &copy; 2021 All Rights Reserved by DressCode.</p>
+
+        </div>
+      </div>
     </footer>
   </body>
 </html>

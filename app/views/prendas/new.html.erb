@@ -13,5 +13,7 @@
 <%= form_for @prenda do |f| %> <!-- esto que está acá se llama FormBuilder (rails) -->
   <%= f.text_area :descripcion %>
   <%= f.select :tipo, Prenda.tipos.keys, {} %>
+  <%= f.select :categoria, Prenda.categoria.keys, {} %>
+  <%= f.select :cprimario, Prenda.cprimario.keys, {} %>
   <%= f.submit %>
 <% end %>

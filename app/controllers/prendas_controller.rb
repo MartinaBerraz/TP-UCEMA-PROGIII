@@ -9,7 +9,7 @@
 #
 class PrendasController < ApplicationController
 
-  before_action :set_prenda, only: [:show, :update, :edit]
+  before_action :set_prenda, only: [:show, :update, :edit,:delete]
 
   # get /prendas/
   def index
@@ -60,6 +60,15 @@ class PrendasController < ApplicationController
 
   # get /prendas/edit
   def edit
+  end
+
+  def delete
+  end
+
+  def destroy
+    @prenda.destroy
+
+    redirect_to :action => :index
   end
 
   private

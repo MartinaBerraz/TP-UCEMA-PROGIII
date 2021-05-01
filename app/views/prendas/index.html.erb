@@ -1,9 +1,32 @@
+<body>
+<body>
+<section class="container">
+  <nav class="fixed-top navbar navbar-expand-lg navbar-dark bg-dark">
+    <h4 class="title">
+      <a class="navbar-brand justify-content-start" href="#">Dresscode</a>
+    </h4>
+    <ul class="nav"> <!--También se podría hacer con flex-->
+      <li class="nav-item">
+        <a class="nav-link" href="#">Home</a>
+      </li>
+    </ul>
+  </nav>
+</section>
 <h2>Tus prendas</h2>
 
+<%= link_to "Crear nueva prenda", new_prenda_path %>
 <ul>
   <% @prendas.each do |prenda| %>
-      <li><%= link_to prenda.descripcion, prenda %></li>
+    <tr>
+      <td><%= prenda.descripcion %></td>
+      <td><%= prenda.tipo %></td>
+      <td><%= link_to 'Show', :action => :show, :id => prenda.id %></td>
+      <td><%= link_to 'Edit', :action => :edit, :id => prenda.id %></td>
+      <td><%= link_to 'Delete', { :action => :destroy, :id => prenda.id }, :method => :delete, :data => { :confirm => 'Are you sure?' } %></td>
+    </tr>
   <% end %>
 </ul>
 
-<%= link_to "Crear nueva prenda", new_prenda_path %>
+</body>
+
+
