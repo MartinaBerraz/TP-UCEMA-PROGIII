@@ -1,0 +1,5 @@
+<%= form_for @prenda do |f| %>
+  <%= f.text_area :descripcion %>
+  <%= f.select :tipo,Prenda.tipos.keys, {} %>
+  <%= f.submit  %>
+<% end %>

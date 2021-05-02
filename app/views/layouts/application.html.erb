@@ -5,12 +5,46 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+
      <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <script src="https://use.fontawesome.com/aa20e20d69.js"></script> <!--FS-->
   </head>
 
   <body>
+  <section class="container">
+    <nav class="fixed-top navbar navbar-expand-lg navbar-dark bg-dark">
+      <h4 class="title">
+        <a class="navbar-brand justify-content-start" href="#">Dresscode</a>
+      </h4>
+      <ul class="nav"> <!--También se podría hacer con flex-->
+        <li class="nav-item">
+          <a class="nav-link" href="#">Home</a>
+        </li>
+
+      </ul>
+
+    </nav>
+  </section>
     <%= yield %>
   </body>
+
+
+  <footer>
+    <div class="dc-footer">
+      <div class="dc-social">
+        <a class=“dc-social-icon hover" target="_blank" href=“#"><i class="fa fa-fw fa-facebook"></i></a>
+        <a class=“dc-social-icon hover" target="_blank" href=“#"><i class="fa fa-fw fa-twitter"></i></a>
+        <a class=“dc-social-icon hover" target="_blank" href=“#"><i class="fa fa-fw fa-linkedin"></i></a>
+      </div>
+      <div class=“dc-footer-list">
+        <a class=“dc-footer-list-item hover" href=“#l”>Inicio</a>
+        <a class=“dc-footer-list-item hover" href=“#l”>Servicio al Cliente</a>
+        <a class=“dc-footer-list-item hover" href=“#”>Privacy</a>
+        <p class="copyright-text">Copyright &copy; 2021 All Rights Reserved by DressCode.</p>
+
+      </div>
+    </div>
+  </footer>
 </html>
