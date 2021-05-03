@@ -9,7 +9,7 @@
 #
 class PrendasController < ApplicationController
 
-  before_action :set_prenda, only: [:show, :update, :edit]
+  before_action :set_prenda, only: [:show, :update, :edit, :destroy]
 
   # get /prendas/
   def index
@@ -47,11 +47,6 @@ class PrendasController < ApplicationController
     redirect_to action: :index
   end
 
-  def delete
-    Prenda.delete! prenda_params
-    redirect_to action: :index
-  end
-
   # get /prendas/new
   def new
     @prenda = Prenda.new
@@ -65,6 +60,11 @@ class PrendasController < ApplicationController
 
   # get /prendas/edit
   def edit
+  end
+
+  def destroy
+    @prenda.destroy
+    redirect_to :action => :index
   end
 
 

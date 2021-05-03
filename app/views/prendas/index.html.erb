@@ -1,45 +1,20 @@
+<body>
 <h2>Tus prendas</h2>
+
 <%= link_to "Crear nueva prenda", new_prenda_path, method: :post %>
 
-<!--Carousel Wrapper-->
-<div id="multi-item-example" class="carousel slide carousel-multi-item" data-ride="carousel">
-
-  <!--Controls-->
-  <div class="controls-top">
-    <a class="btn-floating" href="#multi-item-example" data-slide="prev"><i class="fas fa-chevron-left"></i></a>
-    <a class="btn-floating" href="#multi-item-example" data-slide="next"><i
-      class="fas fa-chevron-right"></i></a>
-  </div>
-  <!--/.Controls-->
-
-  <!--Indicators-->
-  <ol class="carousel-indicators">
-    <li data-target="#multi-item-example" data-slide-to="0" class="active"></li>
-    <li data-target="#multi-item-example" data-slide-to="1"></li>
-
-  </ol>
-  <!--/.Indicators-->
-
-  <div class="carousel-inner" role="listbox">
-
-  <% @prendas.each do |prenda| %>
-    <li><%= link_to prenda.descripcion, prenda %></li>
 
 
-    <div class="carousel-item active">
-
-      <div class="col-md-3" style="float:left">
-        <div class="card mb-2">
-          <div class="card-body">
-            <h4 class="card-title"><%=prenda.tipo%></h4>
-            <p class="card-text"><%=prenda.descripcion %>/p>
-            <a class="btn btn-primary">Button</a>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  <% end %>
-    <!--Slides-->
-  </div>
-</div>
+  <%= link_to "Crear nueva prenda", new_prenda_path %>
+  <ul>
+    <% @prendas.each do |prenda| %>
+      <tr>
+        <td><%= prenda.descripcion %></td>
+        <td><%= prenda.tipo %></td>
+        <td><%= link_to 'Show', :action => :show, :id => prenda.id %></td>
+        <td><%= link_to 'Edit', :action => :edit, :id => prenda.id %></td>
+        <td><%= link_to 'Delete', { :action => :destroy, :id => prenda.id }, :method => :delete, :data => { :confirm => 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </ul>
+</body>
