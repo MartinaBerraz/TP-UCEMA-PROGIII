@@ -1,11 +1,29 @@
+<nav class=" navbar navbar-expand-lg navbar-dark bg-dark">
+  <h4 class="title">
+    <a class="navbar-brand justify-content-start" href="#">Dresscode</a>
+  </h4>
+  <ul class="nav">
+    <li class="nav-item">
+      <a class="nav-link" href="#">Home</a>
+    </li>
+  </ul>
+</nav>
 
-<h2>Editar tu prenda</h2>
-
-<%= form_for @prenda do |f| %>
-  <%= f.text_area :descripcion %>
-  <%= f.select :tipo,Prenda.tipos.keys, {} %>
-  <%= f.select :categoria,Prenda.categoria.keys, {} %>
-  <%= f.select :cprimario,Prenda.cprimarios.keys, {} %>
-  <%= f.select :csecundario,Prenda.csecundarios.keys, {} %>
-  <%= f.submit  %>
-<% end %>
+<div class="panel panel-default form-panel">
+  <h2>Edita tu prenda</h2>
+  <%= form_for @prenda do |f| %>
+    Descripción
+    <%= f.text_area :descripcion %>
+    Tipo
+    <%= f.select :tipo, Prenda.tipos.keys, {}  %>
+    Categoría
+    <%= f.select :categoria, Prenda.categoria.keys, {} %>
+    Material
+    <%= f.select :material, Prenda.materials.keys, {} %>
+    Color primario
+    <%= f.select :cprimario, Prenda.cprimarios.keys, {} %>
+    Color secundario
+    <%= f.select :csecundario,Prenda.csecundarios.keys, {} %>
+    <%= f.submit %>
+  <% end %>
+</div>

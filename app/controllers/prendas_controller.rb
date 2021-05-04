@@ -79,6 +79,6 @@ class PrendasController < ApplicationController
     # que nos provee rails para manejar de forma segura los campos de un
     # formulario. El require va a llevar el nombre de la clase que queremos manipular
     # y el permit, los campos particulares que nos interesa admitir para editar/crear.
-    params.require(:prenda).permit(:tipo,:descripcion, :categoria, :material, :cprimario, :csecundario)
+    params.require(:prenda).permit(:descripcion,:tipo, :categoria, :material, :cprimario, :csecundario)
   end
 end

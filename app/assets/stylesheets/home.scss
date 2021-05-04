@@ -11,7 +11,10 @@
   text-anchor: end;
   justify-content: end;
   display: flex;
+  align-items: end;
 }
+
+
 .nav-link
 {
   color: #DADADA;
@@ -110,8 +113,8 @@ input[type=submit]:hover {
   margin-bottom: 4vw;
   padding-left: 10%;
   flex-shrink: 2;
-  min-font-size: 10px;
-  max-font-size: 100px;
+  min-font-size: 1px;
+  display: flex;
 }
 
 .container-fluid
