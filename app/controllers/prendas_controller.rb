@@ -63,7 +63,7 @@ class PrendasController < ApplicationController
   end
 
   def destroy
-    @prenda.destroy
+    @prenda.destroy!
     redirect_to :action => :index
   end
 

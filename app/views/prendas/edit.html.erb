@@ -1,5 +1,11 @@
+
+<h2>Editar tu prenda</h2>
+
 <%= form_for @prenda do |f| %>
   <%= f.text_area :descripcion %>
   <%= f.select :tipo,Prenda.tipos.keys, {} %>
+  <%= f.select :categoria,Prenda.categoria.keys, {} %>
+  <%= f.select :cprimario,Prenda.cprimarios.keys, {} %>
+  <%= f.select :csecundario,Prenda.csecundarios.keys, {} %>
   <%= f.submit  %>
 <% end %>

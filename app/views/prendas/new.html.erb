@@ -1,6 +1,9 @@
-
-<%= form_for @prenda do |f| %> <!-- esto que está acá se llama FormBuilder (rails) -->
-  <%= f.text_area :descripcion %>
-  <%= f.select :tipo, Prenda.tipos.keys, {} %>
+<h2>Alta de prenda</h2>
+<%= form_for @prenda do |f| %>
+  <%= f.select :tipo, Prenda.tipo %>
+  <%= f.select :categoria, Prenda.categoria %>
+  <%= f.select :cprimario, Prenda.cprimario %>
+  <%= f.select :csecundario,Prenda.csecundario.keys, {} %>
+  <%= f.select :tela, Prenda.telas %>
   <%= f.submit %>
 <% end %>
