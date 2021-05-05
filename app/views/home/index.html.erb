@@ -1,22 +1,33 @@
 <head>
   <title Dresscode homepage></title>
   <link href="home.scss" rel="stylesheet">
+  <script src="https://use.fontawesome.com/aa20e20d69.js"></script> <!--FS-->
+  <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
   <meta name="description" title="Software capaz de escogerle al usuario un atuendo en base al clima y la ocasión">
+  <script src="https://use.fontawesome.com/aa20e20d69.js"></script> <!--FS-->
 </head>
 
 </body>
-<section class="container">
-  <nav class="fixed-top navbar navbar-expand-lg navbar-dark bg-dark">
-    <ul class="nav "> <!--También se podría hacer con flex-->
-      <li class="nav-item">
-        <a class="navbar-brand justify-content-start" href="#">Dresscode</a>
-      </li>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="d-flex flex-grow-1">
+    <span class="w-100 d-lg-none d-block"><!-- hidden spacer to center brand on mobile --></span>
+    <a class="navbar-brand" href="#">
+      Dresscode
+    </a>
+    <div class="w-100 text-right">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#myNavbar7">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </div>
+  </div>
+  <div class="collapse navbar-collapse flex-grow-1 text-right" id="myNavbar7">
+    <ul class="navbar-nav ml-auto flex-nowrap">
       <li class="nav-item">
         <a class="nav-link" href="#">Home</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">¿Qué me pongo?</a>
+        <a class="nav-link" <%= link_to '¿Qué me pongo?', :prendas %></a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#">¿Quiénes somos?</a>
@@ -24,59 +35,59 @@
       <li class="nav-item">
         <a class="nav-link" href="#">Contactanos</a>
       </li>
-    </ul>
 
-  </nav>
-</section>
+    </ul>
+  </div>
+</nav>
 
 <section class="cont-img">
   <img src="<%= asset_path 'pexels-august-de-richelieu-4427816.jpg' %>"> <!-- Es un comando de ruby -->
 </section>
 
 <section class="container">
+  <hr>
   <p class="intro">En DressCode nos encargamos que nuestros clientes se vistan de la mejor manera
   dependiendo las condiciones climaticas de cada día, brindamos prendas de
   primera calidad y usamos los mejores criterios asesorandonos con los grandes profesionales de la moda.
   </p>
+  <hr>
 </section>
 <section title="Quiénes somos?" >
 
-  <div class="container">
+  <div class="container-fluid">
     <h1>Quiénes somos?</h1>
     <div class="row">
-      <div class="col-sm">
+      <div class="col-lg-3 col-md-6">
         <img src="<%= asset_path 'p1' %>">
         <h4>
           Mateo Rial
         </h4>
-        <p>Lider del area de desarrollo y nuevas tecnologias </p>
-        <p><a class="btn btn-secondary" href="#">Contactar »</a></p>
+        <p>Lider del area de desarrollo</p>
 
       </div>
-      <div class="col-sm">
+      <div class="col-lg-3 col-md-6">
         <img src="<%= asset_path 'p2' %>">
         <h4>
           Florencia Skiba
         </h4>
         <p>Lider del area de Marketing & Sales</p>
-        <p><a class="btn btn-secondary" href="#">Contactar »</a></p>
-      </div>
-      <div class="col-sm">
-        <img src="<%= asset_path 'p3' %>">
-        <h4>
-          Mariano Gonzalez Racig
-        </h4>
-        <p> Lider del area  Arquitertura</p>
-        <p><a class="btn btn-secondary" href="#">Contactar »</a></p>
+
 
       </div>
-      <div class="col-sm">
+      <div class="col-lg-3 col-md-6">
+        <img src="<%= asset_path 'p3' %>">
+        <h4>
+          Mariano G. Racig
+        </h4>
+        <p> Lider del area  Arquitectura</p>
+
+      </div>
+      <div class="col-lg-3 col-md-6">
         <img src="<%= asset_path 'p4' %>">
         <h4>
           Martina Berraz
         </h4>
         <p>Lider del area Centro de Servicios</p>
-        <p><a class="btn btn-secondary" href="#">Contactar »</a></p>
 
       </div>
     </div>
@@ -85,15 +96,11 @@
 </section>
 
 <div class="cont-contact">
+  <section class="form-contact">
   <div style="text-align:center">
     <h2>Contactanos</h2>
     <p>Envía un mensaje:</p>
   </div>
-  <div class="row">
-    <div class="column">
-      <img src="<%= asset_path 'freestocks.jpg' %>" style="width:100%">
-    </div>
-    <div class="column">
       <form action="/action_page.php">
         <label for="fname">Nombre</label>
         <input type="text" id="fname" name="firstname" placeholder="Su nombre..">
@@ -107,39 +114,19 @@
         </select>
         <label for="subject">Asunto</label>
         <textarea id="subject" name="subject" placeholder="Comentarios.." style="height:170px"></textarea>
-        <input type="submit" value="Submit">
+
+
       </form>
+    <div class="btn">
+      <input type="submit" value="Submit">
     </div>
-  </div>
+  </section>
 </div>
-</section>
+
 </body>
 
-<footer class="site-footer">
-  <div class="container">
-    <div class="row">
 
 
-      <div class="col-xs-6 col-md-3">
-        <h6>Categorias</h6>
-        <ul class="footer-links">
-          <li><a href="http://scanfcode.com/category/c-language/">Privacy</a></li>
-          <li><a href="http://xxx/">Detalles de contacto</a></li>
-          <li><a href="http://xxx/">Terminos de Uso</a></li>
-
-        </ul>
-      </div>
-
-      <div class="container">
-        <div class="row">
-          <div class="col-md-8 col-sm-6 col-xs-12">
-            <p class="copyright-text">Copyright &copy; 2021 All Rights Reserved by
-              <a href="#">DessCode</a>.
-            </p>
-          </div>
-        </div>
-      </div>
-</footer>
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-     J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
