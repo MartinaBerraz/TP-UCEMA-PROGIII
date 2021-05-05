@@ -1,3 +1,4 @@
+<body>
 <nav class=" navbar navbar-expand-lg navbar-dark bg-dark">
   <h4 class="title">
     <a class="navbar-brand justify-content-start" href="#">Dresscode</a>
@@ -9,9 +10,22 @@
   </ul>
 </nav>
 
-<h3><%= @prenda.descripcion %></h3>
-
-...mas informacion de la prenda...
 
 <%= link_to "Editar esta prenda", edit_prenda_path(@prenda) %>
 
+<div class="col-md-3">
+  <div class="card mb-2">
+    <img class="card-img-top"
+         src="<%= asset_path @prenda.tipo %>" alt="Card image cap">
+    <div class="card-body" >
+      <h4 class="card-title"><%== @prenda.tipo%> </h4>
+      <h4 class="card-title"><%== @prenda.id%> </h4>
+      <p class="card-text flex-fill" ><%== @prenda.descripcion%></p>
+
+      <a class="btn btn-primary text-center" <%= link_to 'Mostrar', :action => :show, :id => @prenda.id %></a>
+      <a class="btn btn-primary text-center"<%= link_to 'Editar', :action => :edit, :id => @prenda.id %></a>
+      <a class="btn btn-primary text-center"<%= link_to 'Borrar', { :action => :destroy, :id => @prenda.id }, :method => :delete, :data => { :confirm => 'Are you sure?' }  %></a>
+    </div>
+  </div>
+</div>
+</body>

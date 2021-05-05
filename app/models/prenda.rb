@@ -5,6 +5,6 @@ class Prenda < ApplicationRecord
   enum material: [:algodon, :seda, :lino]
   enum csecundario: [:violeta, :verde, :azul, :rosa, :amarillo]
 
-  validates :descripcion, presence: { message: "Descripción no puede ser un campo vacío"}
 
+  validates :descripcion, presence: { message: "Descripción no puede ser un campo vacío"}
 end

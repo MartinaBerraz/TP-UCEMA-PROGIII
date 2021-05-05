@@ -7,7 +7,6 @@ class CreatePrendas < ActiveRecord::Migration[6.0]
       t.integer :material
       t.integer :cprimario
       t.integer :csecundario
-
       t.timestamps
     end
   end
