@@ -9,11 +9,20 @@
 </head>
 
 </body>
-  <nav class=" navbar navbar-expand-lg navbar-dark bg-dark">
-      <h4 class="title">
-        <a class="navbar-brand justify-content-start" href="#">Dresscode</a>
-      </h4>
-    <ul class="nav"> <!--También se podría hacer con flex-->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="d-flex flex-grow-1">
+    <span class="w-100 d-lg-none d-block"><!-- hidden spacer to center brand on mobile --></span>
+    <a class="navbar-brand" href="#">
+      Dresscode
+    </a>
+    <div class="w-100 text-right">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#myNavbar7">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </div>
+  </div>
+  <div class="collapse navbar-collapse flex-grow-1 text-right" id="myNavbar7">
+    <ul class="navbar-nav ml-auto flex-nowrap">
       <li class="nav-item">
         <a class="nav-link" href="#">Home</a>
       </li>
@@ -26,9 +35,10 @@
       <li class="nav-item">
         <a class="nav-link" href="#">Contactanos</a>
       </li>
-    </ul>
 
-  </nav>
+    </ul>
+  </div>
+</nav>
 
 <section class="cont-img">
   <img src="<%= asset_path 'pexels-august-de-richelieu-4427816.jpg' %>"> <!-- Es un comando de ruby -->
@@ -67,7 +77,7 @@
       <div class="col-lg-3 col-md-6">
         <img src="<%= asset_path 'p3' %>">
         <h4>
-          Mariano Gonzalez Racig
+          Mariano G. Racig
         </h4>
         <p> Lider del area  Arquitectura</p>
 
