@@ -1,3 +1,5 @@
+<body>
+
 <nav class=" navbar navbar-expand-lg navbar-dark bg-dark">
   <h4 class="title">
     <a class="navbar-brand justify-content-start" href="#">Dresscode</a>
@@ -6,54 +8,32 @@
     <li class="nav-item">
       <a class="nav-link" href="#">Home</a>
     </li>
+    <li class="nav-item">
+      <a class="nav-link" <%= link_to "Crear nueva prenda", new_prenda_path %></a>
+    </li>
   </ul>
 </nav>
 
-<body>
-<%= link_to "Crear nueva prenda", new_prenda_path %>
-<!--Carousel Wrapper-->
-<div id="multi-item-example" class="carousel slide carousel-multi-item" data-ride="carousel">
+<div class="row row-cols-1 row-cols-md-6">
 
-  <!--Controls-->
-  <div class="controls-top">
-    <a class="btn-floating" href="#multi-item-example" data-slide="prev"><i class="fas fa-chevron-left"></i></a>
-    <a class="btn-floating" href="#multi-item-example" data-slide="next"><i class="fas fa-chevron-right"></i></a>
-  </div>
-  <!--/.Controls-->
+  <% @prendas.each do |prenda| %>
 
-  <!--Indicators-->
-  <ol class="carousel-indicators">
-    <li data-target="#multi-item-example" data-slide-to="0" class="active"></li>
-    <li data-target="#multi-item-example" data-slide-to="1"></li>
+    <!--/.Slides-->
 
-  </ol>
-  <!--/.Indicators-->
+    <div class="col md-4 mb-5">
+      <div class="card h-100">
+        <img src="<%= asset_path prenda.tipo %>" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title"><%== prenda.tipo%></h5>
+          <p class="card-text"><%== prenda.descripcion%></p>
+          <a class="btn btn-primary bg-dark text-center mb-1" <%= link_to 'Mostrar', :action => :show, :id => prenda.id %></a>
 
-  <!--Slides-->
-  <div class="carousel-inner" role="listbox">
-
-
-
-    <% @prendas.each do |prenda| %>
-      <div class="carousel-item active">
-        <div class="col-md-3" style="float:left">
-          <div class="card mb-2">
-            <img class="card-img-top"
-                 src="<%= asset_path prenda.tipo %>" alt="Card image cap">
-            <div class="card-body" >
-              <h4 class="card-title"><%== prenda.tipo%> </h4>
-              <h4 class="card-title"><%== prenda.id%> </h4>
-              <p class="card-text flex-fill" ><%== prenda.descripcion%></p>
-
-              <a class="btn btn-primary text-center" <%= link_to 'Mostrar', :action => :show, :id => prenda.id %></a>
-              <a class="btn btn-primary text-center"<%= link_to 'Editar', :action => :edit, :id => prenda.id %></a>
-              <a class="btn btn-primary text-center"<%= link_to 'Borrar', { :action => :destroy, :id => prenda.id }, :method => :delete, :data => { :confirm => 'Are you sure?' }  %></a>
-            </div>
-          </div>
+          <a class="btn btn-primary bg-dark text-center mb-1"<%= link_to 'Editar', :action => :edit, :id => prenda.id %></a>
+          <a class="btn btn-primary bg-dark text-center mb-1"<%= link_to 'Borrar', { :action => :destroy, :id => prenda.id }, :method => :delete, :data => { :confirm => 'Are you sure?' }  %></a>
         </div>
+      </div>
     </div>
-<!--/.Slides-->
-    <% end %>
-</div>
+
+  <% end %>
 </div>
 </body>

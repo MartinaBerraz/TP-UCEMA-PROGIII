@@ -10,22 +10,23 @@
   </ul>
 </nav>
 
+<div class="card" style="max-width: 1100px;">
+  <div class="row no-gutters">
+    <div class="col-md-4">
+      <img class="card-img-top"
+           src="<%= asset_path @prenda.tipo %>" alt="Card image cap">
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title"><%== @prenda.tipo%> </h5>
+        <p class="card-text"><%== @prenda.descripcion%></p>
+        <p class="card-text"><%== @prenda.cprimario%></p>
+        <p class="card-text"><%== @prenda.csecundario%></p>
 
-<%= link_to "Editar esta prenda", edit_prenda_path(@prenda) %>
+        <p class="card-text"><small class="text-muted"><%= @prenda.categoria %></small></p>
 
-<div class="col-md-3">
-  <div class="card mb-2">
-    <img class="card-img-top"
-         src="<%= asset_path @prenda.tipo %>" alt="Card image cap">
-    <div class="card-body" >
-      <h4 class="card-title"><%== @prenda.tipo%> </h4>
-      <h4 class="card-title"><%== @prenda.id%> </h4>
-      <p class="card-text flex-fill" ><%== @prenda.descripcion%></p>
-
-      <a class="btn btn-primary text-center" <%= link_to 'Mostrar', :action => :show, :id => @prenda.id %></a>
-      <a class="btn btn-primary text-center"<%= link_to 'Editar', :action => :edit, :id => @prenda.id %></a>
-      <a class="btn btn-primary text-center"<%= link_to 'Borrar', { :action => :destroy, :id => @prenda.id }, :method => :delete, :data => { :confirm => 'Are you sure?' }  %></a>
+      </div>
     </div>
   </div>
 </div>
-</body>
+
