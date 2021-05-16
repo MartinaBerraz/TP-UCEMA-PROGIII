@@ -3,7 +3,7 @@
   <div class="d-flex flex-grow-1">
     <span class="w-100 d-lg-none d-block"><!-- hidden spacer to center brand on mobile --></span>
     <a class="navbar-brand" href="#">
-      Dresscode
+      Dresscode - Mis prendas 
     </a>
     <div class="w-100 text-right">
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#myNavbar7">
@@ -23,7 +23,7 @@
   </div>
 </nav>
 
-<div class="row row-cols-1 row-cols-md-6">
+<div class="row row-cols-1 row-cols-md-4">
 
   <% @prendas.each do |prenda| %>
 
@@ -37,8 +37,8 @@
           <p class="card-text"><%== prenda.descripcion%></p>
           <a class="btn btn-primary bg-dark text-center mb-1" <%= link_to 'Mostrar', :action => :show, :id => prenda.id %></a>
 
-          <a class="btn btn-primary bg-dark text-center mb-1"<%= link_to 'Editar', :action => :edit, :id => prenda.id %></a>
-          <a class="btn btn-primary bg-dark text-center mb-1"<%= link_to 'Borrar', { :action => :destroy, :id => prenda.id }, :method => :delete, :data => { :confirm => 'Are you sure?' }  %></a>
+          <a class="btn btn-secondary bg-dark text-center mb-1"<%= link_to 'Editar', :action => :edit, :id => prenda.id %></a>
+          <%= link_to 'Borrar', prenda, :method => :delete, :data => { :confirm => 'Are you sure?' }, class:"btn btn-secondary bg-dark text-center mb-1"  %>
         </div>
       </div>
     </div>

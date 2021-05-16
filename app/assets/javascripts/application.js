@@ -11,3 +11,8 @@
 // about supported directives.
 //
 //= require_tree ./application
+
+
+
+//= require jquery
+//= require jquery_ujs
