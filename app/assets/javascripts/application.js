@@ -12,6 +12,5 @@
 //
 //= require_tree ./application
 
-
-//= require jquery_ujs
 //= require jquery
+//= require jquery_ujs
