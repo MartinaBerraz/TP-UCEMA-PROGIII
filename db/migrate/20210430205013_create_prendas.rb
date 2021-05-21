@@ -5,8 +5,8 @@ class CreatePrendas < ActiveRecord::Migration[6.0]
       t.text :descripcion
       t.integer :categoria
       t.integer :material
-      t.integer :cprimario
-      t.integer :csecundario
+      t.text :cprimario
+      t.text :csecundario
       t.timestamps
     end
   end
