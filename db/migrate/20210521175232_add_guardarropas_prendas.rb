@@ -4,5 +4,5 @@ class AddGuardarropasPrendas < ActiveRecord::Migration[6.0]
       t.belongs_to :guardarropa
       t.belongs_to :prenda
     end
-    end
+  end
 end
