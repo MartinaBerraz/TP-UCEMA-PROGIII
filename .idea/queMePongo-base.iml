@@ -91,6 +91,7 @@
     <orderEntry type="library" scope="PROVIDED" name="websocket-driver (v0.7.3, ruby-2.6.6-p146) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="websocket-extensions (v0.1.5, ruby-2.6.6-p146) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="zeitwerk (v2.4.2, ruby-2.6.6-p146) [gem]" level="application" />
+    <orderEntry type="library" name="aa20e20d69" level="application" />
   </component>
   <component name="RModuleSettingsStorage">
     <LOAD_PATH number="0" />

@@ -35,3 +35,25 @@
 {
   padding-top: 2%;
 }
+
+/* CSS for Buttons */
+
+.btn_sec {
+  background-color: darkolivegreen;
+  color: white;
+  padding: 12px 20px;
+  cursor: pointer;
+  border: none;
+
+  display: block;
+  text-align: center;
+  height: fit-content;
+  margin: 4px;
+
+}
+.btn_sec:hover {
+  background-color: #2E2F30;
+  text-decoration-color: #DADADA;
+}
+
+/* end CSS for Buttons */

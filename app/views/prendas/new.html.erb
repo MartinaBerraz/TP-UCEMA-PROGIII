@@ -33,13 +33,23 @@
     <%= f.select :tipo, Prenda.tipos.keys, {}  %>
     <h5>Categoría</h5>
     <%= f.select :categoria, Prenda.categoria.keys, {} %>
+
+    <h5>Color primario</h5>
+    <%= f.text_area :cprimario %>
+    <label for="favcolor">Color que predomina:</label>
+    <input type="color" id="favcolor" name="favcolor" value="#ff0000">
+    <h5>Color secundario</h5>
+    <%= f.text_area :csecundario %>
+    <label for="favcolor">Seleccione otro color:</label>
+    <input type="color" id="favcolor" name="favcolor" value="#ff0000">
+
     <h5>Material</h5>
     <%= f.select :material, Prenda.materials.keys, {} %>
-    <h5>Color primario</h5>
-    <%= f.select :cprimario, Prenda.cprimarios.keys, {} %>
-    <h5>Color secundario</h5>
-    <%= f.select :csecundario,Prenda.csecundarios.keys, {} %>
-    <div class="btn"><%= f.submit %></div>
+
+    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+      <%= f.submit :create, class:"btn btn_sec"%>
+      <a class="btn btn_sec" <%= link_to 'Cancelar', :back %></a>
+    </div>
 <% end %>
 </div>
 </body>
