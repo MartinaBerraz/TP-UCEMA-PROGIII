@@ -17,7 +17,7 @@
         <a class="nav-link" <%= link_to "Home", home_index_path %></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" <%= link_to "Crear nueva prenda", new_prenda_path %></a>
+        <a class="nav-link" <%= link_to "Crear nueva prenda", new_guardarropa_path %></a>
       </li>
     </ul>
   </div>
@@ -27,25 +27,15 @@
   <div class="row no-gutters">
     <div class="col-md-4">
       <img class="card-img-top"
-           src="<%= asset_path @prenda.tipo %>" alt="Card image cap">
+           src="<%= asset_path 'guardarropas.jpg' %>" class="card-img-top" alt="...">
+
     </div>
     <div class="col-md-8">
+
+
       <div class="card-body">
-        <h4 class="card-title"><%== @prenda.descripcion%> </h4>
-        <h5 class="card-text"><%== @prenda.tipo%></h5>
-
-        <h6 class="card-text"></h6>
-        <small class="text-muted">Color primario: </small>
-        <br>
-          <input type="color" value=<%==@prenda.cprimario%>>
-        <br>
-        <h6 class="card-text"></h6>
-        <small class="text-muted">Color secundario: </small>
-        <br>
-        <input type="color" value=<%==@prenda.csecundario%>>
-
-        <br>
-        <h6 class="card-text"><%= @prenda.categoria %></small></h6>
+        <h5 class="card-title"><%== @guardarropa.id %></h5>
+        <p class="card-text"><%== @guardarropa.nombre %></p>
 
         <div class="d-grid gap-2 d-md-flex align-self-end">
           <a class="btn btn_sec" <%= link_to 'Cancelar', :back %></a>
@@ -58,4 +48,3 @@
   </div>
 
 </div>
-

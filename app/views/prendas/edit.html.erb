@@ -35,10 +35,15 @@
     <%= f.select :categoria, Prenda.categoria.keys, {} %>
     <h5>Material</h5>
     <%= f.select :material, Prenda.materials.keys, {} %>
+
     <h5>Color primario</h5>
-    <%= f.text_area :cprimario %>
+    <label>Color que predomina:</label>
+    <%= f.color_field :cprimario %>
+
     <h5>Color secundario</h5>
-    <%= f.text_area :csecundario %>
+    <label>Seleccione otro color:</label>
+    <%= f.color_field :csecundario %>
+
 
     <div class="d-grid gap-2 d-md-flex justify-content-md-end">
       <%= f.submit :create, class:"btn btn_sec"%>

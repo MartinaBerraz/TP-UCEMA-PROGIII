@@ -21,7 +21,7 @@
         <a class="nav-link" <%= link_to "Home", home_index_path %></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" <%= link_to "Crear nueva prenda", new_prenda_path %></a>
+        <a class="nav-link" <%= link_to "Crear nuevo guardarropas", new_guardarropa_path %></a>
       </li>
     </ul>
   </div>
@@ -29,28 +29,29 @@
 
 <div class="row row-cols-1 row-cols-md-6">
 
-  <% @prendas.each do |prenda| %>
+  <% @guardarropas.each do |guardarropa| %>
 
     <!--/.Slides-->
 
     <div class="col md-4 mb-3 mt-2">
       <div class="card h-100">
-        <img src="<%= asset_path prenda.tipo %>" class="card-img-top" alt="...">
+
         <div class="card-body">
-          <h5 class="card-title"><%== prenda.tipo%></h5>
-          <p class="card-text"><%== prenda.descripcion%></p>
+
+          <h5 class="card-title"><%== guardarropa.id %></h5>
+          <p class="card-text"><%== guardarropa.nombre %></p>
 
           <!--
-          <a class="btn btn-primary bg-dark text-center mb-1" <i class="fab fa-accessible-icon"></i> <%= link_to 'Mostrar', :action => :show, :id => prenda.id %></a>
-          <a class="btn btn-primary bg-dark text-center mb-1"<%= link_to 'Editar', :action => :edit, :id => prenda.id %></a>
-          <a class="btn btn-primary bg-dark text-center mb-1"<%= link_to 'Borrar', { :action => :destroy, :id => prenda.id }, :method => :delete, :data => { :confirm => 'Are you sure?' }  %></a>
+          <a class="btn btn-primary bg-dark text-center mb-1" <i class="fab fa-accessible-icon"></i> <%= link_to 'Mostrar', :action => :show, :id => guardarropa.id %></a>
+          <a class="btn btn-primary bg-dark text-center mb-1"<%= link_to 'Editar', :action => :edit, :id => guardarropa.id %></a>
+          <a class="btn btn-primary bg-dark text-center mb-1"<%= link_to 'Borrar', { :action => :destroy, :id => guardarropa.id }, :method => :delete, :data => { :confirm => 'Are you sure?' }  %></a>
 -->
-          <%= link_to :action => :show, :id => prenda.id do %>
+          <%= link_to :action => :show, :id => guardarropa.id do %>
             <%= "<i class='fas fa-eye'></i>".html_safe %>
           <% end %>
 
-          <%= link_to :action => :edit, :id => prenda.id do %>
-            <%="<i class='fas fa-edit'></i>".html_safe %>
+          <%= link_to :action => :edit, :id => guardarropa.id do %>
+            <%= "<i class='fas fa-edit'></i>".html_safe %>
           <% end %>
 
           <%= link_to :method => :delete, :data => { :confirm => 'Are you sure?' } do %>
