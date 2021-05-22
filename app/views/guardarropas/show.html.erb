@@ -36,6 +36,20 @@
   </div>
 </section>
 
+<section title="Atuendos en este guardarropa" >
+  <div class="row row-cols-1 row-cols-md-6">
+    <% if @guardarropa.atuendos.any? %>
+      <ul>
+        <% @guardarropa.atuendos.each do |atuendo| %>
+          <li> <%=link_to atuendo.nombre, atuendo_path %></li>
+        <% end %>
+      </ul>
+    <% else %>
+      <p>No hay atuendos asociados a este guardarropa</p>
+    <%end %>
+  </div>
+</section>
+
 <div class="d-grid gap-2 d-md-flex align-self-end">
   <a class="btn btn_sec" <%= link_to 'Volver', :back %></a>
 </div>
