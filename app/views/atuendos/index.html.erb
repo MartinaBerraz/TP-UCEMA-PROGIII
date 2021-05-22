@@ -1,0 +1,67 @@
+<head>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="d-flex flex-grow-1">
+    <span class="w-100 d-lg-none d-block"><!-- hidden spacer to center brand on mobile --></span>
+    <a class="navbar-brand" href="#">
+      Dresscode
+    </a>
+    <div class="w-100 text-right">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#myNavbar7">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </div>
+  </div>
+  <div class="collapse navbar-collapse flex-grow-1 text-right" id="myNavbar7">
+    <ul class="navbar-nav ml-auto flex-nowrap">
+      <li class="nav-item">
+        <a class="nav-link" <%= link_to "Home", home_index_path %></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" <%= link_to "Crear nueva prenda", new_prenda_path %></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" <%= link_to "Crear nuevo atuendo", new_atuendo_path %></a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<div class="row row-cols-1 row-cols-md-6">
+
+  <% @atuendo.each do |atuendo| %>
+
+    <div class="col md-4 mb-3 mt-2">
+      <div class="card h-100">
+
+        <div class="card-body">
+
+          <h5 class="card-title"><%== atuendo.id %></h5>
+          <p class="card-text"><%== atuendo.nombre %></p>
+
+          <!--
+          <a class="btn btn-primary bg-dark text-center mb-1" <i class="fab fa-accessible-icon"></i> <%= link_to 'Mostrar', :action => :show, :id => atuendo.id %></a>
+          <a class="btn btn-primary bg-dark text-center mb-1"<%= link_to 'Editar', :action => :edit, :id => atuendo.id %></a>
+          <a class="btn btn-primary bg-dark text-center mb-1"<%= link_to 'Borrar', { :action => :destroy, :id => atuendo.id }, :method => :delete, :data => { :confirm => 'Are you sure?' }  %></a>
+-->
+          <%= link_to :action => :show, :id => atuendo.id do %>
+            <%= "<i class='fas fa-eye'></i>".html_safe %>
+          <% end %>
+          <%= link_to :action => :edit, :id => atuendo.id do %>
+            <%= "<i class='fas fa-edit'></i>".html_safe %>
+          <% end %>
+          <%= link_to :method => :delete, :data => { :confirm => 'Are you sure?' } do %>
+            <%= "<i class='fas fa-trash'></i>".html_safe %>
+          <% end %>
+
+        </div>
+      </div>
+    </div>
+
+  <% end %>
+</div>
+</body>
+
