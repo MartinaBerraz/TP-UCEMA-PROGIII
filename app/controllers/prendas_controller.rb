@@ -50,6 +50,7 @@ class PrendasController < ApplicationController
   # get /prendas/new
   def new
     @prenda = Prenda.new
+
   end
 
   # put /prendas/:id

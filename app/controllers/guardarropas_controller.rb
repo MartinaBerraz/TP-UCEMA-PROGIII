@@ -11,6 +11,16 @@ class GuardarropasController < ApplicationController
   def show
   end
 
+  def edit
+  end
+
+
+  # get /guaradrropas/new
+  def new
+    @guardarropa = Guardarropa.new
+    @prendas = Prenda.all
+  end
+
   def create
     Guardarropa.create! guardarropa_params # nota: guardarropa_params NO viene con el controller,
     redirect_to action: :index
@@ -20,6 +30,11 @@ class GuardarropasController < ApplicationController
     redirect_to :action => :index
   end
 
+
+  def update
+    @guardarropa.update! guardarropa_params
+    redirect_to @guardarropa
+  end
 
   private
 
@@ -32,6 +47,6 @@ class GuardarropasController < ApplicationController
     # que nos provee rails para manejar de forma segura los campos de un
     # formulario. El require va a llevar el nombre de la clase que queremos manipular
     # y el permit, los campos particulares que nos interesa admitir para editar/crear.
-    params.require(:pguardarropa).permit(:nombre)
+    params.require(:guardarropa).permit(:nombre, prenda_ids:[])
   end
 end
