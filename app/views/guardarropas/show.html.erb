@@ -14,37 +14,44 @@
   <div class="collapse navbar-collapse flex-grow-1 text-right" id="myNavbar7">
     <ul class="navbar-nav ml-auto flex-nowrap">
       <li class="nav-item">
-        <a class="nav-link" <%= link_to "Home", home_index_path %></a>
+        <a class="nav-link" <%= link_to "Administrar atuendos", atuendos_path %></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" <%= link_to "Crear nueva prenda", new_guardarropa_path %></a>
+        <a class="nav-link" <%= link_to "Crear nueva prenda", new_prenda_path %></a>
       </li>
     </ul>
   </div>
 </nav>
-
-<div class="card" style="max-width: 1100px;">
-  <div class="row no-gutters">
-    <div class="col-md-4">
-      <img class="card-img-top"
-           src="<%= asset_path 'guardarropas.jpg' %>" class="card-img-top" alt="...">
-
-    </div>
-    <div class="col-md-8">
-
-
-      <div class="card-body">
-        <h5 class="card-title"><%== @guardarropa.id %></h5>
-        <p class="card-text"><%== @guardarropa.nombre %></p>
-
-        <div class="d-grid gap-2 d-md-flex align-self-end">
-          <a class="btn btn_sec" <%= link_to 'Cancelar', :back %></a>
-        </div>
-
-      </div>
-
-    </div>
-
+<<section title="Prendas en este guardarropa" >
+  <div class="row row-cols-1 row-cols-md-6">
+    <% if @guardarropa.prendas.any? %>
+      <ul>
+        <% @guardarropa.prendas.each do |prenda| %>
+          <li> <%=link_to prenda.descripcion, prenda_path %></li>
+        <% end %>
+      </ul>
+    <% else %>
+      <p>No hay prendas asociadas a este guardarropa</p>
+    <%end %>
   </div>
+</section>
 
+<section title="Atuendos en este guardarropa" >
+  <div class="row row-cols-1 row-cols-md-6">
+    <% if @guardarropa.atuendos.any? %>
+      <ul>
+        <% @guardarropa.atuendos.each do |atuendo| %>
+          <li> <%=link_to atuendo.nombre, atuendo_path %></li>
+        <% end %>
+      </ul>
+    <% else %>
+      <p>No hay atuendos asociados a este guardarropa</p>
+    <%end %>
+  </div>
+</section>
+
+<div class="d-grid gap-2 d-md-flex align-self-end">
+  <a class="btn btn_sec" <%= link_to 'Volver', :back %></a>
 </div>
+
+</body>
