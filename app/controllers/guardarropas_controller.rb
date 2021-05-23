@@ -4,7 +4,9 @@ class GuardarropasController < ApplicationController
 
   #/get/guardarropas/
   def index
-    @guardarropas = Guardarropa.all
+    @guardarropas=Guardarropa.paginate(page: params[:page], per_page: 5).all
+
+
   end
 
   # get /guardarropas/:id

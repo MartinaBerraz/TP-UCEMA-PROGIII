@@ -13,7 +13,7 @@ class PrendasController < ApplicationController
 
   # get /prendas/
   def index
-    @prendas = Prenda.all
+    @prendas = Prenda.paginate(page: params[:page], per_page: 5).all
   end
 
   # 1. Cuando accedemos a /prendas/1, rails sabe

@@ -3,7 +3,7 @@ class AtuendosController < ApplicationController
 
   #/get/atuendos/
   def index
-    @atuendo = Atuendo.all
+    @atuendos = Atuendo.paginate(page: params[:page], per_page: 5).all
   end
 
   # get /atuendos/:id
