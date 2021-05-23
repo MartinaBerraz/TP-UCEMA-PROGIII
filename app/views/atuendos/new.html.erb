@@ -24,19 +24,24 @@
 </nav>
 
 <div class="panel panel-default form-panel">
-  <h2>Crea tu guardarropas</h2>
+  <h2>Crea tu atuendo</h2>
   <hr>
   <%= form_for @atuendo do |f| %>
     <h5>Nombre</h5>
     <%= f.text_area :nombre %>
 
     <div class = "row">
-      <% (1..4).each do |i| %>
-        <label class="col-6 cols-sm-3">
-          <%= f.check_box :prenda_ids, {multiple: true}, prenda.id, nil%>
-          <%= prenda.descripcion %>
+
+      <% (0..3).each do |i| %>
+      <p> Categoría <%= i %></p>
+        <label class="col-12 ">
+            <%= f.collection_radio_buttons :prenda_ids, @prendas.where("categoria = ?",i), :id, :descripcion %>
         </label>
+
       <% end %>
+      <br>
+
+
     </div>
 
     <div class="d-grid gap-2 d-md-flex justify-content-md-end">

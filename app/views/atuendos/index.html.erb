@@ -1,2 +1,6 @@
+<% @atuendos.each do |atuendo| %>
+
 <h1>Atuendos#index</h1>
-<p>Find me in app/views/atuendos/index.html.erb</p>
+<h1><%= link_to "crear", :action => :new %></h1>
+<h1><%= link_to "Ver", :action => :show,:id => atuendo.id %></h1>
+<% end %>
