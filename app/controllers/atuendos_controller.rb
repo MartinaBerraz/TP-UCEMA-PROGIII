@@ -1,8 +1,10 @@
 class AtuendosController < ApplicationController
-  before_action :set_atuendos, only: [:show, :update, :edit, :destroy]
+  before_action :set_guardarropa, except: [:create]
+  before_action :set_atuendo, only: [:show, :update, :edit, :destroy]
 
   def index
-    @atuendos = Atuendo.all
+    @guardarropa = Guardarropa.find(params[:guardarropa_id])
+    @atuendos = @guardarropa.atuendos
   end
 
   def show
@@ -12,13 +14,13 @@ class AtuendosController < ApplicationController
   end
 
   def new
-    @atuendo = Atuendo.new
-    @prendas = Prenda.all
+    @atuendo = @guardarropa.atuendos.new
+    @prendas = @guardarropa.prendas
   end
 
   def create
-    Atuendo.create! atuendo_params # nota: guardarropa_params NO viene con el controller,
-    redirect_to action: :index
+    @atuendo= Atuendo.create(atuendo_params)
+    redirect_to controller: 'guardarropas', action: 'show', id:@atuendo.guardarropa_id
   end
   def destroy
     @atuendo.destroy!
@@ -34,14 +36,17 @@ class AtuendosController < ApplicationController
   private
 
   def set_atuendo
-    @atuendo = Atuendo.find(params[:id])
+    @atuendo = @guardarropa.atuendos.find(params[:id])
+  end
+
+  def set_guardarropa
+    @guardarropa= Guardarropa.find(params[:guardarropa_id])
   end
 
   def atuendo_params
-    # esto vamos a hacerlo siempre así, como una receta,
-    # que nos provee rails para manejar de forma segura los campos de un
-    # formulario. El require va a llevar el nombre de la clase que queremos manipular
-    # y el permit, los campos particulares que nos interesa admitir para editar/crear.
-    params.require(:atuendo).permit(:nombre, prenda_ids:[] )
+    params.require(:atuendo).permit(:nombre, :guardarropa_id,prenda_ids:[])
   end
+
+
+
 end

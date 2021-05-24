@@ -29,16 +29,25 @@
   <%= form_for @atuendo do |f| %>
     <h5>Nombre</h5>
     <%= f.text_area :nombre %>
-
+    <%= f.text_area :guardarropa_id%>
     <div class = "row">
 
       <% (0..3).each do |i| %>
-      <p> Categoría <%= i %></p>
         <label class="col-12 ">
-            <%= f.collection_radio_buttons :prenda_ids, @prendas.where("categoria = ?",i), :id, :descripcion %>
-        </label>
 
-      <% end %>
+          <% p = @prendas.where("categoria = ?",i) %>
+
+          <p>Categoría <%= i %></p>
+          <% p.each do |prenda| %>
+            <%= f.check_box :prenda_ids, {multiple: true}, prenda.id, nil%>
+            <%= prenda.descripcion %>
+            <br>
+
+          <%end %>
+        </label>
+      <%end %>
+
+
       <br>
 
 

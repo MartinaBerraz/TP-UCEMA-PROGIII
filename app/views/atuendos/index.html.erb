@@ -1,6 +1,51 @@
+<head>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+
+</head>
+<body>
 <% @atuendos.each do |atuendo| %>
 
 <h1>Atuendos#index</h1>
 <h1><%= link_to "crear", :action => :new %></h1>
 <h1><%= link_to "Ver", :action => :show,:id => atuendo.id %></h1>
 <% end %>
+
+
+<div class="row row-cols-1 row-cols-md-6">
+
+  <% @atuendos.each do |atuendo| %>
+
+    <!--/.Slides-->
+
+    <div class="col md-4 mb-3 mt-2">
+      <div class="card h-100">
+
+        <div class="card-body">
+
+          <h5 class="card-title"><%== atuendo.id %></h5>
+          <p class="card-text"><%== atuendo.nombre %></p>
+
+          <!--
+          <a class="btn btn-primary bg-dark text-center mb-1" <i class="fab fa-accessible-icon"></i> <%= link_to 'Mostrar', :action => :show, :id => atuendo.id %></a>
+          <a class="btn btn-primary bg-dark text-center mb-1"<%= link_to 'Editar', :action => :edit, :id => atuendo.id %></a>
+          <a class="btn btn-primary bg-dark text-center mb-1"<%= link_to 'Borrar', { :action => :destroy, :id => atuendo.id }, :method => :delete, :data => { :confirm => 'Are you sure?' }  %></a>
+-->
+          <%= link_to :action => :show, :id => atuendo.id do %>
+            <%= "<i class='fas fa-eye'></i>".html_safe %>
+          <% end %>
+
+          <%= link_to :action => :edit, :id => atuendo.id do %>
+            <%= "<i class='fas fa-edit'></i>".html_safe %>
+          <% end %>
+
+          <%= link_to 'Borrar', { :action => :destroy, :id => atuendo.id }, :method => :delete, :data => { :confirm => 'Are you sure?' }  do %>
+            <%= "<i class='fas fa-trash'></i>".html_safe %>
+          <% end %>
+
+        </div>
+      </div>
+    </div>
+
+  <% end %>
+</div>
+</body>

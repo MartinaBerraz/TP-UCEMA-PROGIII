@@ -21,3 +21,5 @@ vieja.prendas.create! descripcion:"Pantalon de vestir", tipo:1, cprimario:"rosa"
 vieja.prendas.create! descripcion:"Remera con flores", tipo:2, cprimario:"azul", csecundario:"rosa", categoria:0
 trabajo.prendas.create! descripcion:"Bufanda lisa", tipo:1, cprimario:"azul", csecundario:"rosa", categoria:3
 trabajo.prendas.create! descripcion:"Anteojos de sol", tipo:3, cprimario:"azul", csecundario:"rosa", categoria:3
+
+Atuendo.create!(nombre:"Atuendo de fiesta", clasificacion:10, etiqueta:0,guardarropa_id:1)
