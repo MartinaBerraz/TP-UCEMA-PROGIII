@@ -7,8 +7,7 @@
 
 <h1>Atuendos#index</h1>
 <h1><%= link_to "crear", :action => :new %></h1>
-  <h1><%= link_to "crearAleatorio", :action => :newrandom %></h1>
-<h1><%= link_to "Ver", :action => :show,:id => atuendo.id %></h1>
+  <h1><%= link_to "Ver", :action => :show,:id => atuendo.id %></h1>
 <% end %>
 
 
@@ -26,11 +25,6 @@
           <h5 class="card-title"><%== atuendo.id %></h5>
           <p class="card-text"><%== atuendo.nombre %></p>
 
-          <!--
-          <a class="btn btn-primary bg-dark text-center mb-1" <i class="fab fa-accessible-icon"></i> <%= link_to 'Mostrar', :action => :show, :id => atuendo.id %></a>
-          <a class="btn btn-primary bg-dark text-center mb-1"<%= link_to 'Editar', :action => :edit, :id => atuendo.id %></a>
-          <a class="btn btn-primary bg-dark text-center mb-1"<%= link_to 'Borrar', { :action => :destroy, :id => atuendo.id }, :method => :delete, :data => { :confirm => 'Are you sure?' }  %></a>
--->
           <%= link_to :action => :show, :id => atuendo.id do %>
             <%= "<i class='fas fa-eye'></i>".html_safe %>
           <% end %>

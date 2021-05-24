@@ -4,8 +4,6 @@ Rails.application.routes.draw do
 
   get 'guardarropa/:id/atuendos', to: "atuendos#newrandom"
 
-
-
   resources :prendas
   resources :guardarropas
   resources :atuendos
