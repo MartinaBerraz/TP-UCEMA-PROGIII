@@ -4,7 +4,7 @@ class AtuendosController < ApplicationController
 
   def index
     @guardarropa = Guardarropa.find(params[:guardarropa_id])
-    @atuendos = @guardarropa.atuendos
+    @atuendos = @guardarropa.atuendos.all
 
   end
 

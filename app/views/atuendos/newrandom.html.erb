@@ -35,21 +35,35 @@
     <%= f.text_area :nombre %>
     <%= f.text_area :guardarropa_id%>
     <div class = "row">
+
       <% (0..3).each do |i| %>
         <label class="col-12 ">
+
           <% p = @prendas.where("categoria = ?",i) %>
+          <% num = rand(p.count)  %>
+          <% contador=0 %>
           <p>Categoría <%= i %></p>
           <% p.each do |prenda| %>
-            <%= f.check_box :prenda_ids, {multiple: true}, prenda.id, nil%>
-            <%= prenda.descripcion %>
+            <% if contador == num %>
+              <%= prenda.descripcion %>
+              <% f.text_area :prenda.descripcion %>
+            <% end %>
+
+            <% contador+=1 %>
             <br>
+
           <%end %>
         </label>
       <%end %>
+
+
       <br>
+
+
     </div>
+
     <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-      <%= f.submit :Create, class:"btn btn_sec"%>
+      <%= f.submit :create, class:"btn btn_sec"%>
       <a class="btn btn_sec" <%= link_to 'Cancelar', :back %></a>
     </div>
   <% end %>

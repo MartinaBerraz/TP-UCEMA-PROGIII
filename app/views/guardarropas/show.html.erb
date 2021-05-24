@@ -18,7 +18,7 @@
   <div class="collapse navbar-collapse flex-grow-1 text-right" id="myNavbar7">
     <ul class="navbar-nav ml-auto flex-nowrap">
       <li class="nav-item">
-        <a class="nav-link" <%= link_to "Administrar atuendos", atuendos_path %></a>
+        <a class="nav-link" <%= link_to "Administrar atuendos", guardarropa_atuendos_path(@guardarropa,@atuendos) %></a>
       </li>
       <li class="nav-item">
         <a class="nav-link" <%= link_to "Crear nueva prenda", new_prenda_path %></a>
@@ -26,14 +26,22 @@
     </ul>
   </div>
 </nav>
-<<section title="Prendas en este guardarropa" >
+<section title="Prendas en este guardarropa" >
+  <h4> Prendas en este guardarropa</h4>
   <div class="row row-cols-1 row-cols-md-6">
     <% if @guardarropa.prendas.any? %>
-      <ul>
+
         <% @guardarropa.prendas.each do |prenda| %>
-          <li> <%=link_to prenda.descripcion, prenda_path %></li>
+          <div class="col md-4 mb-3 mt-2">
+          <div class="card h-100">
+            <div class="card-body">
+              <h5 class="card-title"><%== prenda.id %></h5>
+              <p class="card-text"><%== prenda.descripcion %></p>
+
+            </div>
+          </div>
+          </div>
         <% end %>
-      </ul>
     <% else %>
       <p>No hay prendas asociadas a este guardarropa</p>
     <%end %>
@@ -41,13 +49,24 @@
 </section>
 
 <section title="Atuendos en este guardarropa" >
+  <h4>Atuendos en este guardarropa</h4>
   <div class="row row-cols-1 row-cols-md-6">
     <% if @guardarropa.atuendos.any? %>
-      <ul>
+
         <% @guardarropa.atuendos.each do |atuendo| %>
-          <li> <%=link_to atuendo.nombre, atuendo_path %></li>
+
+          <div class="col md-4 mb-3 mt-2">
+            <div class="card h-100">
+              <div class="card-body">
+                <h5 class="card-title"><%== atuendo.id %></h5>
+                <p class="card-text"><%== atuendo.nombre %></p>
+
+              </div>
+            </div>
+          </div>
+
         <% end %>
-      </ul>
+
     <% else %>
       <p>No hay atuendos asociados a este guardarropa</p>
     <%end %>
