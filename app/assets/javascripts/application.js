@@ -41,21 +41,22 @@ function getWeather(){
         document.getElementById('clima-loader').hidden = true;
         if(this.status == 200){
             let data = JSON.parse(this.responseText);
-            let climaDescription = data.weather[0].description;
-            let iconid= data.weather[0].icon;
-            let climaHTML = `<span>Clima: ${climaDescription}</span>`
-            let climatemp= data.main.temp;
-            let climatempHTML = `<span>Temp: ${climatemp} ºC </span>`
+
             let city= data.name;
             let cityHTML = `<span>${city}</span>`
+            let climaDescription = data.weather[0].description;
+            let climatemp= data.main.temp;
+            let climatempHTML = `<span>${climatemp} ºC </span>`
+            let climaHTML = `<span>Clima: ${climaDescription}</span>`
+            let iconid= data.weather[0].icon;
 
 
             document.getElementById('city-container').innerHTML = cityHTML;
             document.getElementById('clima-container').innerHTML = climaHTML;
             document.getElementById('temp-container').innerHTML = climatempHTML;
-            document.getElementById('icon-container').innerHTML = `<img src="icons/${iconid}.png"/>`;
+            document.getElementById('icon-container').innerHTML = `<img src="../../icons/${iconid}.png"/>`;
 
-            displayWeather();
+
         }
     }
 
@@ -74,13 +75,6 @@ function getWeather(){
 
 }
 
-// muestro datos api
-function displayWeather(){
-    iconElement.innerHTML = `<img src="icons/${weather.iconId}.png"/>`;
-    tempElement.innerHTML = `${weather.temperature.value}°<span>C</span>`;
-    descElement.innerHTML = weather.description;
-
-}
 
 
 
