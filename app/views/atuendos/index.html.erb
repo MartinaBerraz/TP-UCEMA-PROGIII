@@ -27,13 +27,23 @@
   </div>
 </nav>
 
+<div class="clima-full-container " >
+  <div id='clima-loader' hidden=true></div>
+  <div id="city-container"></div>
+  <div id="icon-container" ></div>
+  <div id="temp-container"></div>
+  <div id="clima-container"></div>
 
-<div class="indexcontainer">
+</div>
+<script src="javascripts/application.js"></script>
+
+<h4 class="navigation"> Mis Atuendos</h4>
+<div class="indexcontainer1">
 <div class="row row-cols-1 row-cols-md-6">
-
   <% @atuendos.each do |atuendo| %>
     <div class="col md-4 mb-3 mt-2">
       <div class="card h-100">
+
         <div class="card-body">
           <h5 class="card-title"><%== atuendo.id %></h5>
           <p class="card-text"><%== atuendo.nombre %></p>

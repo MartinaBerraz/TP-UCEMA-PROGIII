@@ -26,52 +26,50 @@
     </ul>
   </div>
 </nav>
+<div class="indexcontainer1">
 <section title="Prendas en este guardarropa" >
   <h4> Prendas en este guardarropa</h4>
   <div class="row row-cols-1 row-cols-md-6">
     <% if @guardarropa.prendas.any? %>
-
-        <% @guardarropa.prendas.each do |prenda| %>
+      <% @guardarropa.prendas.each do |prenda| %>
           <div class="col md-4 mb-3 mt-2">
           <div class="card h-100">
+            <img src="<%= asset_path prenda.tipo %>" class="card-img-top" alt="...">
             <div class="card-body">
               <h5 class="card-title"><%== prenda.id %></h5>
               <p class="card-text"><%== prenda.descripcion %></p>
-
             </div>
           </div>
           </div>
         <% end %>
     <% else %>
-      <p>No hay prendas asociadas a este guardarropa</p>
+      <h5 class="aviso" >No hay prendas asociadas a este guardarropa</h5>
     <%end %>
   </div>
+
 </section>
 
 <section title="Atuendos en este guardarropa" >
   <h4>Atuendos en este guardarropa</h4>
   <div class="row row-cols-1 row-cols-md-6">
     <% if @guardarropa.atuendos.any? %>
-
-        <% @guardarropa.atuendos.each do |atuendo| %>
-
-          <div class="col md-4 mb-3 mt-2">
+      <% @guardarropa.atuendos.each do |atuendo| %>
+        <div class="col md-4 mb-3 mt-2">
             <div class="card h-100">
+              <img src="../atuendo.png" class="card-img-top">
               <div class="card-body">
                 <h5 class="card-title"><%== atuendo.id %></h5>
                 <p class="card-text"><%== atuendo.nombre %></p>
-
               </div>
             </div>
           </div>
-
-        <% end %>
-
+      <% end %>
     <% else %>
-      <p>No hay atuendos asociados a este guardarropa</p>
+      <h5 p class="aviso" ><strong>No hay atuendos asociados a este guardarropa</strong></h5>
     <%end %>
   </div>
 </section>
+</div>
 
 <div class="d-grid gap-2 d-md-flex align-self-end">
   <a class="btn btn_sec" <%= link_to 'Volver', :back %></a>

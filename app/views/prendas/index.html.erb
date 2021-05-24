@@ -27,6 +27,18 @@
   </div>
 </nav>
 
+<div class="clima-full-container " >
+  <div id='clima-loader' hidden=true></div>
+  <div id="city-container"></div>
+  <div id="icon-container" ></div>
+  <div id="temp-container"></div>
+  <div id="clima-container"></div>
+
+</div>
+<script src="javascripts/application.js"></script>
+
+
+<h4 class="navigation"> Mis Prendas</h4>
 <div class="indexcontainer">
 <div class="row row-cols-1 row-cols-md-6">
   <% @prendas.each do |prenda| %>
@@ -36,14 +48,13 @@
         <div class="card-body">
           <h5 class="card-title"><%== prenda.tipo%></h5>
           <p class="card-text"><%== prenda.descripcion%></p>
-
           <%= link_to :action => :show, :id => prenda.id do %>
             <%= "<i class='fas fa-eye'></i>".html_safe %>
           <% end %>
           <%= link_to :action => :edit, :id => prenda.id do %>
             <%="<i class='fas fa-edit'></i>".html_safe %>
           <% end %>
-          <%= link_to :action => :destroy, :id => prenda.id , :method => :delete, :data => { :confirm => 'Are you sure?' }  do %>
+          <%= link_to :action => :destroy, :id => prenda.id , :method => :delete, :data => { :confirm => 'Are you sure?' } do %>
             <%= "<i class='fas fa-trash'></i>".html_safe %>
           <% end %>
 
@@ -54,6 +65,6 @@
  </div>
 </div>
 <div class="d_pagination">
-<%= will_paginate @prendas %>
+<%= will_paginate @prendas, :container => false%>
 </div>
 </body>

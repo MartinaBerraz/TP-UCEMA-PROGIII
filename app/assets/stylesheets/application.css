@@ -149,7 +149,31 @@ a:link {
 
 }
 .indexcontainer{
-    margin: 3vw 3vw 3vw 3vw;
+    display:flex;
+    margin: 1vw 1vw 1vw 1vw;
     justify-content: center;
+    align-items: center;
+    background: #bebebe;
+
+}
+.indexcontainer1{
+
+    margin: 1vw 1vw 1vw 1vw;
+    justify-content: center;
+}
+
+
+.navigation{
+    margin: 30px 4px 4px 30px;
+
+}
+.card{
+    margin: 0.3vw 0.3vw 0.3vw 0.3vw;
+
+}
+.aviso{
+    margin: 0.3vw 0.3vw 0.3vw 0vw;
+    color: darkslategray;
+    text-align: center;
 
 }
