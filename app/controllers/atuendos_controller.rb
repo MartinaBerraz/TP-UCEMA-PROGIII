@@ -1,5 +1,5 @@
 class AtuendosController < ApplicationController
-  before_action :set_guardarropa, except: [:create]
+  before_action :set_guardarropa, except: [:create, :newrandom]
   before_action :set_atuendo, only: [:show, :update, :edit, :destroy]
 
   def index
@@ -11,6 +11,11 @@ class AtuendosController < ApplicationController
   end
 
   def edit
+  end
+
+  def newrandom
+    @atuendo = @guardarropa.atuendos.new
+    @prendas = @guardarropa.prendas
   end
 
   def new
