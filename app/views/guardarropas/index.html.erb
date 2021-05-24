@@ -33,11 +33,20 @@
 
 
 
+<div id='clima-loader' hidden=true>
+  Cargando...
+</div>
+<div id="clima-container"></div>
+<div id="temp-container"></div>
+
+
+<script src="javascripts/application.js"></script>
+
+
+
 <div class="row row-cols-1 row-cols-md-6">
 
   <% @guardarropas.each do |guardarropa| %>
-
-    <!--/.Slides-->
 
     <div class="col md-4 mb-3 mt-2">
       <div class="card h-100">
@@ -67,10 +76,8 @@
     </div>
 
   <% end %>
+  <%= will_paginate @guardarropas %>
 
-  <div>
-    <%= will_paginate @guardarropas %>
-  </div>
 
 </div>
 </body>
