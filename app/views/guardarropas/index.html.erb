@@ -24,7 +24,7 @@
         <a class="nav-link" <%= link_to "Crear nuevo guardarropas", new_guardarropa_path %></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" <%= link_to "Crear nueva prenda", new_prenda_path %></a>
+        <a class="nav-link" <%= link_to "Administrar prendas", prendas_path %></a>
       </li>
 
     </ul>
@@ -33,26 +33,20 @@
 
 
 
-<div id='clima-loader' hidden=true>
-  Cargando...
-</div>
-<div id="clima-container"></div>
+<div id='clima-loader' hidden=true></div>
+<div id="city-container"></div>
+<div id="icon-container" ></div>
 <div id="temp-container"></div>
-
+<div id="clima-container"></div>
 
 <script src="javascripts/application.js"></script>
 
 
-
 <div class="row row-cols-1 row-cols-md-6">
-
   <% @guardarropas.each do |guardarropa| %>
-
     <div class="col md-4 mb-3 mt-2">
       <div class="card h-100">
-
         <div class="card-body">
-
           <h5 class="card-title"><%== guardarropa.id %></h5>
           <p class="card-text"><%== guardarropa.nombre %></p>
 
@@ -74,10 +68,9 @@
         </div>
       </div>
     </div>
-
   <% end %>
-  <%= will_paginate @guardarropas %>
-
-
 </div>
+
+  <%= will_paginate @guardarropas%>
 </body>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>

@@ -42,12 +42,19 @@ function getWeather(){
         if(this.status == 200){
             let data = JSON.parse(this.responseText);
             let climaDescription = data.weather[0].description;
-            let climaHTML = `<span>clima: ${climaDescription}</span>`
+            let iconid= data.weather[0].icon;
+            let climaHTML = `<span>Clima: ${climaDescription}</span>`
             let climatemp= data.main.temp;
-            let climatempHTML = `<span>temp: ${climatemp}</span>`
+            let climatempHTML = `<span>Temp: ${climatemp} ºC </span>`
+            let city= data.name;
+            let cityHTML = `<span>${city}</span>`
 
+
+            document.getElementById('city-container').innerHTML = cityHTML;
             document.getElementById('clima-container').innerHTML = climaHTML;
             document.getElementById('temp-container').innerHTML = climatempHTML;
+            document.getElementById('icon-container').innerHTML = `<img src="icons/${iconid}.png"/>`;
+
             displayWeather();
         }
     }

@@ -44,3 +44,52 @@ html {
       font-size: 1.6rem;
     }
   }
+/* CSS for Footer ***/
+.dc-footer
+{
+    padding: 1vw 1VW;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #2E2F30;
+    flex-wrap: nowrap;
+    width: 100%;
+    height: 135px;
+}
+
+.dc-social
+{display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+}
+
+.“dc-social-icon{
+    margin: 0 12px 0 0;
+    color:#fff;
+    font-size: 1.25rem;
+}
+
+.“dc-footer-list\"{
+    text-align: center;
+    color:#ffffff;
+
+}
+
+.copyright-text{
+    color:#ffffff;
+    margin-top: 3px;
+}
+
+a:link {
+    color: white;
+
+}
+.“dc-footer-list-item{
+    margin: 8px;
+
+}
+
+/* CSS footer end */
