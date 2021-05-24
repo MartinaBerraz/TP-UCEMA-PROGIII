@@ -45,10 +45,7 @@ class GuardarropasController < ApplicationController
   end
 
   def guardarropa_params
-    # esto vamos a hacerlo siempre así, como una receta,
-    # que nos provee rails para manejar de forma segura los campos de un
-    # formulario. El require va a llevar el nombre de la clase que queremos manipular
-    # y el permit, los campos particulares que nos interesa admitir para editar/crear.
-    params.require(:guardarropa).permit(:nombre, prenda_ids:[])
+
+    params.require(:guardarropa).permit(:nombre, atuendos_ids:[], prenda_ids:[])
   end
 end

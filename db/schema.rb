@@ -17,6 +17,8 @@ ActiveRecord::Schema.define(version: 2021_05_21_211743) do
 
   create_table "atuendos", force: :cascade do |t|
     t.text "nombre"
+    t.integer "clasificacion"
+    t.integer "etiqueta"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "guardarropa_id"

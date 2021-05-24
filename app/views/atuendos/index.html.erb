@@ -21,39 +21,32 @@
         <a class="nav-link" <%= link_to "Home", home_index_path %></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" <%= link_to "Crear nueva prenda", new_prenda_path %></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" <%= link_to "Crear nuevo atuendo", new_atuendo_path %></a>
+        <a class="nav-link" <%= link_to "crear nuevo atuendo", :action => :new %></a>
       </li>
     </ul>
   </div>
 </nav>
 
+
+<div class="indexcontainer">
 <div class="row row-cols-1 row-cols-md-6">
 
   <% @atuendos.each do |atuendo| %>
-
     <div class="col md-4 mb-3 mt-2">
       <div class="card h-100">
-
         <div class="card-body">
-
           <h5 class="card-title"><%== atuendo.id %></h5>
           <p class="card-text"><%== atuendo.nombre %></p>
 
-          <!--
-          <a class="btn btn-primary bg-dark text-center mb-1" <i class="fab fa-accessible-icon"></i> <%= link_to 'Mostrar', :action => :show, :id => atuendo.id %></a>
-          <a class="btn btn-primary bg-dark text-center mb-1"<%= link_to 'Editar', :action => :edit, :id => atuendo.id %></a>
-          <a class="btn btn-primary bg-dark text-center mb-1"<%= link_to 'Borrar', { :action => :destroy, :id => atuendo.id }, :method => :delete, :data => { :confirm => 'Are you sure?' }  %></a>
--->
           <%= link_to :action => :show, :id => atuendo.id do %>
             <%= "<i class='fas fa-eye'></i>".html_safe %>
           <% end %>
+
           <%= link_to :action => :edit, :id => atuendo.id do %>
             <%= "<i class='fas fa-edit'></i>".html_safe %>
           <% end %>
-          <%= link_to :method => :delete, :data => { :confirm => 'Are you sure?' } do %>
+
+          <%= link_to 'Borrar', { :action => :destroy, :id => atuendo.id }, :method => :delete, :data => { :confirm => 'Are you sure?' }  do %>
             <%= "<i class='fas fa-trash'></i>".html_safe %>
           <% end %>
 
@@ -62,10 +55,9 @@
     </div>
 
   <% end %>
+</div>
+</div>
 
-</div>
-<div class="d_pagination">
-  <%= will_paginate @guardarropas %>
-</div>
+
+
 </body>
-

@@ -38,12 +38,18 @@
         <h4 class="card-title"><%== @prenda.descripcion%> </h4>
         <h5 class="card-text"><%== @prenda.tipo%></h5>
 
+        <h6 class="card-text"></h6>
         <small class="text-muted">Color primario: </small>
-        <h6 class="card-text"><%== @prenda.cprimario%></h6>
+        <br>
+        <input type="color" value=<%==@prenda.cprimario%>>
+        <br>
+        <h6 class="card-text"></h6>
         <small class="text-muted">Color secundario: </small>
-        <h6 class="card-text"><%== @prenda.csecundario%></h6>
+        <br>
+        <input type="color" value=<%==@prenda.csecundario%>>
 
-        <p class="card-text"><small class="text-muted"><%= @prenda.categoria %></small></p>
+        <br>
+        <h6 class="card-text"><%= @prenda.categoria %></small></h6>
 
         <div class="d-grid gap-2 d-md-flex align-self-end">
           <a class="btn btn_sec" <%= link_to 'Volver', :back %></a>
@@ -56,4 +62,5 @@
   </div>
 
 </div>
+</body>
 

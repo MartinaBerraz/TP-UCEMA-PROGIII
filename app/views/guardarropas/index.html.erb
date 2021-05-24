@@ -42,10 +42,9 @@
 <div id="clima-container"></div>
 
 </div>
-
 <script src="javascripts/application.js"></script>
 
-
+<div class="indexcontainer">
 <div class="row row-cols-1 row-cols-md-6">
   <% @guardarropas.each do |guardarropa| %>
     <div class="col md-4 mb-3 mt-2">
@@ -74,9 +73,9 @@
     </div>
   <% end %>
 </div>
+</div>
 
 <div class="d_pagination">
-
   <%= will_paginate @guadarropas, :container => false %>
 </div>
 </body>

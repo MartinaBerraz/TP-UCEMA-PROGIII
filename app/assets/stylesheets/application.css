@@ -92,6 +92,12 @@ a:link {
 
 }
 
+.fas
+{
+    font-size: 1.25rem;
+    margin: 0 12px 0 0;
+    color:#2E2F30;
+}
 /* CSS footer end */
 
 .d_pagination {
@@ -140,5 +146,10 @@ a:link {
 }
 .clima-full-container img{
     height: 30px;
+
+}
+.indexcontainer{
+    margin: 3vw 3vw 3vw 3vw;
+    justify-content: center;
 
 }

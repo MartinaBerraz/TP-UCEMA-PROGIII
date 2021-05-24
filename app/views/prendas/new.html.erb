@@ -28,9 +28,9 @@
 </nav>
 
 <div class="panel panel-default form-panel">
-<h2>Ingresá tu prenda</h2>
+  <h2>Ingresá tu prenda</h2>
   <hr>
-<%= form_for @prenda do |f| %>
+  <%= form_for @prenda do |f| %>
     <h5>Descripción</h5>
     <%= f.text_area :descripcion %>
     <h5>Tipo</h5>
@@ -39,13 +39,12 @@
     <%= f.select :categoria, Prenda.categoria.keys, {} %>
 
     <h5>Color primario</h5>
-    <%= f.text_area :cprimario %>
-    <label for="favcolor">Color que predomina:</label>
-    <input type="color" id="favcolor" name="favcolor" value="#ff0000">
+    <label>Color que predomina:</label>
+    <%= f.color_field :cprimario %>
+
     <h5>Color secundario</h5>
-    <%= f.text_area :csecundario %>
-    <label for="favcolor">Seleccione otro color:</label>
-    <input type="color" id="favcolor" name="favcolor" value="#ff0000">
+    <label>Seleccione otro color:</label>
+    <%= f.color_field :csecundario %>
 
     <h5>Material</h5>
     <%= f.select :material, Prenda.materials.keys, {} %>
@@ -54,6 +53,6 @@
       <%= f.submit :create, class:"btn btn_sec"%>
       <a class="btn btn_sec" <%= link_to 'Cancelar', :back %></a>
     </div>
-<% end %>
+  <% end %>
 </div>
 </body>

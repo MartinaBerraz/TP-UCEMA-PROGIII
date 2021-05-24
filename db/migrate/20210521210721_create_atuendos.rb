@@ -3,6 +3,9 @@ class CreateAtuendos < ActiveRecord::Migration[6.0]
     create_table :atuendos do |t|
       t.text :nombre
 
+      t.integer :clasificacion
+      t.integer :etiqueta
+
       t.timestamps
     end
   end
