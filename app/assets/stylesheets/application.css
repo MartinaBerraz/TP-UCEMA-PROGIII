@@ -94,7 +94,7 @@ a:link {
 
 .fas
 {
-    font-size: 1.25rem;
+    font-size: 1rem;
     margin: 0 12px 0 0;
     color:#2E2F30;
 }
@@ -105,7 +105,8 @@ a:link {
     border: 1px solid #e5e5e5;
     text-align: center;
     padding: 1em;
-    cursor: default; }
+    cursor: default;
+     }
 .d_pagination a, .d_pagination span {
     padding: 0.2em 0.3em; }
 .d_pagination .disabled {
@@ -151,8 +152,7 @@ a:link {
 .indexcontainer{
     display:flex;
     margin: 1vw 1vw 1vw 1vw;
-    justify-content: center;
-    align-items: center;
+
 
 
 }

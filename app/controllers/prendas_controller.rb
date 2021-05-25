@@ -5,7 +5,7 @@ class PrendasController < ApplicationController
   # get /prendas/
   def index
 
-    @prendas = Prenda.all
+    @prendas = Prenda.all.page params[:page]
 
   end
 

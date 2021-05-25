@@ -3,6 +3,7 @@
 
 </head>
 <body>
+<body>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <div class="d-flex flex-grow-1">
     <span class="w-100 d-lg-none d-block"><!-- hidden spacer to center brand on mobile --></span>
@@ -23,51 +24,46 @@
       <li class="nav-item">
         <a class="nav-link" <%= link_to "Crear nuevo atuendo", :action => :new %></a>
       </li>
+      <li class="nav-item">
+        <a class="nav-link" <%= link_to "Quiero un atuendo", :action => :newrandom %></a>
+      </li>
     </ul>
   </div>
 </nav>
 
-<div class="clima-full-container " >
-  <div id='clima-loader' hidden=true></div>
-  <div id="city-container"></div>
-  <div id="icon-container" ></div>
-  <div id="temp-container"></div>
-  <div id="clima-container"></div>
 
-</div>
-<script src="javascripts/application.js"></script>
 
-<h4 class="navigation"> Mis Atuendos</h4>
-<div class="indexcontainer1">
-<div class="row row-cols-1 row-cols-md-6">
-  <% @atuendos.each do |atuendo| %>
-    <div class="col md-4 mb-3 mt-2">
-      <div class="card h-100">
 
-        <div class="card-body">
-          <h5 class="card-title"><%== atuendo.id %></h5>
-          <p class="card-text"><%== atuendo.nombre %></p>
+  <div class="row row-cols-1 row-cols-md-6">
+    <% @atuendos.each do |atuendo| %>
+      <div class="col md-6 mb-4 mt-3">
+        <div class="card h-100">
+          <img src="<%= asset_path atuendo.etiqueta %>" class="card-img-top" alt="...">
+          <div class="card-body">
+            <div class="card-body">
+              <h5 class="card-title"><%== atuendo.id %></h5>
+              <p class="card-text"><%== atuendo.nombre %></p>
 
-          <%= link_to :action => :show, :id => atuendo.id do %>
-            <%= "<i class='fas fa-eye'></i>".html_safe %>
-          <% end %>
+              <%= link_to :action => :show, :id => atuendo.id do %>
+                <%= "<i class='fas fa-eye'></i>".html_safe %>
+              <% end %>
 
-          <%= link_to :action => :edit, :id => atuendo.id do %>
-            <%= "<i class='fas fa-edit'></i>".html_safe %>
-          <% end %>
+              <%= link_to :action => :edit, :id => atuendo.id do %>
+                <%= "<i class='fas fa-edit'></i>".html_safe %>
+              <% end %>
 
-          <%= link_to 'Borrar', { :action => :destroy, :id => atuendo.id }, :method => :delete, :data => { :confirm => 'Are you sure?' }  do %>
-            <%= "<i class='fas fa-trash'></i>".html_safe %>
-          <% end %>
-
+              <%= link_to 'Borrar', { :action => :destroy, :id => atuendo.id }, :method => :delete, :data => { :confirm => 'Are you sure?' }  do %>
+                <%= "<i class='fas fa-trash'></i>".html_safe %>
+              <% end %>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
+    <% end %>
+  </div>
 
-  <% end %>
+<div class="d_pagination">
+  <%= paginate @atuendos %>
 </div>
-</div>
-
-
-
 </body>
+

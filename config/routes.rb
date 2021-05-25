@@ -7,10 +7,12 @@ Rails.application.routes.draw do
   resources :atuendos
   resources :guardarropas
 
-  get 'guardarropa/:id/atuendos', to: "atuendos#newrandom"
+
 
   resources :guardarropas do
-    resources :atuendos
+    resources :atuendos do
+      get 'newrandom', on: :new
+      end
   end
 
   resources :atuendos do
@@ -20,5 +22,11 @@ Rails.application.routes.draw do
   resources :guardarropas do
     resources :prendas
   end
+
+  resources :guardarropas do
+    resources :atuendos
+  end
+
+
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
