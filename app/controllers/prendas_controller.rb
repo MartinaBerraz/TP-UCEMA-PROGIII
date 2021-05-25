@@ -4,7 +4,7 @@ class PrendasController < ApplicationController
 
   # get /prendas/
   def index
-    @prendas = Prenda.paginate(page: params[:page], per_page: 5).all
+    @prendas = Prenda.all
   end
 
 

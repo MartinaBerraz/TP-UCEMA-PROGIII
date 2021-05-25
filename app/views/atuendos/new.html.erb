@@ -33,20 +33,34 @@
   <%= form_for @atuendo do |f| %>
     <h5>Nombre</h5>
     <%= f.text_area :nombre %>
-    <%= f.text_area :guardarropa_id%>
+    <%= f.text_area :guardarropa_id %>
+
+    <h5>Clasificación</h5>
+    <%= f.select :clasificacion, 1..10, {} %>
+
+    <h5>Etiqueta</h5>
+    <%= f.select :etiqueta, Atuendo.etiqueta.keys, {} %>
     <div class = "row">
       <% (0..3).each do |i| %>
         <label class="col-12 ">
+          <br>
           <% p = @prendas.where("categoria = ?",i) %>
-          <p>Categoría <%= i %></p>
-          <% p.each do |prenda| %>
-            <%= f.check_box :prenda_ids, {multiple: true}, prenda.id, nil%>
-            <%= prenda.descripcion %>
-            <br>
-          <%end %>
+          <h6>Categoría <%= Prenda.categoria.key(i) %></h6>
+          <% if p.any? %>
+            <% p.each do |prenda| %>
+
+              <%= f.check_box :prenda_ids, {multiple: true}, prenda.id, nil%>
+              <%= prenda.descripcion %>
+              <br>
+            <% end %>
+          <% else %>
+            <p><%= "No tiene prendas" %></p>
+          <% end %>
         </label>
       <%end %>
+
       <br>
+
     </div>
     <div class="d-grid gap-2 d-md-flex justify-content-md-end">
       <%= f.submit :Create, class:"btn btn_sec"%>

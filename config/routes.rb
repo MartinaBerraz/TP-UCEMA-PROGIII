@@ -7,7 +7,12 @@ Rails.application.routes.draw do
   resources :atuendos
   resources :guardarropas
 
-  get 'guardarropa/:id/atuendos', to: "atuendos#newrandom"
+
+  resources :guardarropas do
+    resources :atuendos do
+      get 'newrandom', on: :new
+    end
+  end
 
   resources :guardarropas do
     resources :atuendos

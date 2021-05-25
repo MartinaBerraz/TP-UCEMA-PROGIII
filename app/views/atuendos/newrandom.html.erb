@@ -34,6 +34,12 @@
     <h5>Nombre</h5>
     <%= f.text_area :nombre %>
     <%= f.text_area :guardarropa_id%>
+    <h5>Clasificación</h5>
+    <%= f.select :clasificacion, 1..10, {} %>
+
+    <h5>Etiqueta</h5>
+    <%= f.select :etiqueta, Atuendo.etiqueta.keys, {} %>
+
     <div class = "row">
 
       <% (0..3).each do |i| %>
@@ -42,11 +48,11 @@
           <% p = @prendas.where("categoria = ?",i) %>
           <% num = rand(p.count)  %>
           <% contador=0 %>
-          <p>Categoría <%= i %></p>
+          <h6>Categoría <%= Prenda.categoria.key(i) %></h6>
           <% p.each do |prenda| %>
             <% if contador == num %>
+              <%= f.check_box :prenda_ids, {multiple: true}, prenda.id, nil%>
               <%= prenda.descripcion %>
-              <% f.text_area :prenda.descripcion %>
             <% end %>
 
             <% contador+=1 %>

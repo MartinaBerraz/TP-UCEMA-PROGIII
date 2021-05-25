@@ -1,5 +1,5 @@
 class AtuendosController < ApplicationController
-  before_action :set_guardarropa, except: [:create]
+  before_action :set_guardarropa, except: [:create,:index]
   before_action :set_atuendo, only: [:show, :update, :edit, :destroy]
 
   def index
@@ -50,7 +50,7 @@ class AtuendosController < ApplicationController
   end
 
   def atuendo_params
-    params.require(:atuendo).permit(:nombre, :guardarropa_id,prenda_ids:[])
+    params.require(:atuendo).permit(:nombre, :clasificacion, :etiqueta,:guardarropa_id,prenda_ids:[])
   end
 
 end

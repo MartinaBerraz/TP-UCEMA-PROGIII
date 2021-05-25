@@ -19,22 +19,42 @@
     </ul>
   </div>
 </nav>
-<<section title="Prendas en este atuendo" >
-  <div class="row row-cols-1 row-cols-md-6">
-    <% if @atuendo.prendas.any? %>
-      <ul>
-        <% @atuendo.prendas.each do |prenda| %>
-          <li> <%=link_to prenda.descripcion, prenda_path %></li>
-        <% end %>
-      </ul>
-    <% else %>
-      <p>No hay prendas asociadas a este atuendo</p>
-    <%end %>
+
+
+<div class="card" style="max-width: 1100px;">
+  <div class="row no-gutters">
+    <div class="col-md-4">
+      <img class="card-img-top"
+           src="<%= asset_path @atuendo.etiqueta %>" alt="Card image cap">
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h4 class="card-title"><%= @atuendo.nombre%> </h4>
+        <p class="card-text"><%= @atuendo.etiqueta%></p>
+
+
+        <div class="row row-cols-1 row-cols-md-6">
+          <% if @atuendo.prendas.any? %>
+            <ul>
+              <% @atuendo.prendas.each do |prenda| %>
+                <li> <%=link_to prenda.descripcion, prenda_path %></li>
+              <% end %>
+            </ul>
+          <% else %>
+            <p>No hay prendas asociadas a este atuendo</p>
+          <%end %>
+        </div>
+
+
+        <div class="d-grid gap-2 d-md-flex align-self-end">
+          <a class="btn btn_sec" <%= link_to 'Volver', :back %></a>
+        </div>
+
+      </div>
+
+    </div>
+
   </div>
-</section>
 
-<div class="d-grid gap-2 d-md-flex align-self-end">
-  <a class="btn btn_sec" <%= link_to 'Volver', :back %></a>
 </div>
-
 </body>
