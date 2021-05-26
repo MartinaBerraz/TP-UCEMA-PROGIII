@@ -46,11 +46,13 @@
           <% p = @prendas.where("categoria = ?",i) %>
           <% num = rand(p.count)  %>
           <% contador=0 %>
+          <br>
           <h6>Categoría <%= Prenda.categoria.key(i) %></h6>
           <% p.each do |prenda| %>
             <% if contador == num %>
               <%= f.check_box :prenda_ids, {multiple: true}, prenda.id, nil%>
               <%= prenda.descripcion %>
+
             <% end %>
 
             <% contador+=1 %>
@@ -58,8 +60,9 @@
 
           <%end %>
         </label>
+
       <%end %>
-      <br>
+
     </div>
     <div class="d-grid gap-2 d-md-flex justify-content-md-end">
       <%= f.submit :create, class:"btn btn_sec"%>
