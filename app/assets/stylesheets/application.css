@@ -58,6 +58,7 @@ html {
     height: 135px;
     left: 0;
     bottom: 0;
+    min-height: 90%;
 
 }
 
@@ -119,7 +120,14 @@ a:link {
     color:#2E2F30;
     flex-shrink: 1.5;
     display: inline-block;
+    align-items: center;
 
+}
+.card-icons
+{
+    align-items: center;
+    display: inline-flex;
+    justify-content: center;
 }
 
 /* CSS footer end */
@@ -132,10 +140,12 @@ a:link {
     background: #f1f1f1;
     border: 1px solid #e5e5e5;
     text-align: center;
-    padding: 1em;
+    padding: 1rem;
     cursor: default;
     align-items: center;
-     }
+    margin-bottom: 0;
+}
+
 .d_pagination a, .d_pagination span {
     padding: 0.2em 0.3em; }
 
@@ -188,8 +198,6 @@ a:link {
         margin: 4px 70px 4px 70px;
         display: none;
     }
-
-
 }
 
 .clima-full-container hr
@@ -208,9 +216,19 @@ a:link {
 .indexcontainer{
     margin: 1vw 1vw 1vw 1vw;
 
-
+}
+.list-atuendos ::marker
+{
+    color: darkgrey;
 
 }
+
+.list-atuendos li
+{
+    text-decoration: none;
+    color: #2E2F30;
+}
+
 .indexcontainer1{
 
     margin: 1vw 1vw 1vw 1vw;

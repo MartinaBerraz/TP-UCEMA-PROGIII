@@ -1,8 +1,4 @@
-<head>
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 
-</head>
-<body>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <div class="d-flex flex-grow-1">
     <span class="w-100 d-lg-none d-block"><!-- hidden spacer to center brand on mobile --></span>
@@ -37,17 +33,19 @@
         <p class="card-text"><%= @atuendo.etiqueta%></p>
 
 
-        <div class="row row-cols-1 row-cols-md-6">
+
           <% if @atuendo.prendas.any? %>
-            <ul>
+          <div class="row">
+            <ul class="list-atuendos">
               <% @atuendo.prendas.each do |prenda| %>
                 <li> <%=link_to prenda.descripcion, prenda_path %></li>
               <% end %>
             </ul>
+          </div>
           <% else %>
-            <p>No hay prendas asociadas a este atuendo</p>
+            <h6 class="card-text">No hay prendas asociadas a este atuendo</h6>
           <%end %>
-        </div>
+
 
 
         <div class="d-grid gap-2 d-md-flex align-self-end">
@@ -61,4 +59,3 @@
   </div>
 
 </div>
-</body>
