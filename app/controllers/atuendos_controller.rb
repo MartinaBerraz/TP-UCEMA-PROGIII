@@ -1,3 +1,4 @@
+
 class AtuendosController < ApplicationController
   before_action :set_guardarropa, except: [:create,:index]
   before_action :set_atuendo, only: [:show, :update, :edit, :destroy]

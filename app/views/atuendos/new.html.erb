@@ -43,12 +43,9 @@
           <% p = @prendas.where("categoria = ?",i) %>
           <h6>Categoría <%= Prenda.categoria.key(i) %></h6>
           <% if p.any? %>
-            <% p.each do |prenda| %>
+              <%= f.collection_select :prenda_ids, p, :id, :descripcion,prompt: true, multiple: true %>
 
-              <%= f.check_box :prenda_ids, {multiple: true}, prenda.id, nil%>
-              <%= prenda.descripcion %>
               <br>
-            <% end %>
           <% else %>
             <p><%= "No tiene prendas" %></p>
           <% end %>

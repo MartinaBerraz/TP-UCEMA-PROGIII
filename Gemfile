@@ -23,9 +23,16 @@ gem 'json'
 gem 'faraday'
 gem 'kaminari', '~> 0.17.0'
 
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'pry'
+  gem 'pry-rails'
+  gem 'pry-remote'
+  gem 'pry-byebug' unless Gem.win_platform?
+  gem 'pry-stack_explorer'
+  gem 'binding_of_caller'
 end
 
 group :development do
