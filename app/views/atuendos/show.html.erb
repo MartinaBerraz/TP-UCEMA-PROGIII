@@ -31,7 +31,7 @@
       <div class="card-body">
         <h4 class="card-title"><%= @atuendo.nombre%> </h4>
         <p class="card-text"><%= @atuendo.etiqueta%></p>
-        <p class="card-text">Rating: <%= @atuendo.clasificacion%></p>
+        <p class="card-text">Rating: <%= @atuendo.clasificacion %></p>
 
 
 
@@ -39,7 +39,7 @@
           <div class="row">
             <ul class="list-atuendos">
               <% @atuendo.prendas.each do |prenda| %>
-                <li> <%=link_to prenda.descripcion, prenda_path %></li>
+                <li> <%= link_to prenda.descripcion, prenda %></li>
               <% end %>
             </ul>
           </div>
