@@ -29,7 +29,7 @@
   <%= form_for @atuendo do |f| %>
     <h5>Nombre</h5>
     <%= f.text_area :nombre %>
-    <%= f.text_area :guardarropa_id %>
+    <%= f.hidden_field :guardarropa_id %>
 
     <h5>Clasificación</h5>
     <%= f.select :clasificacion, 1..10, {} %>
@@ -37,20 +37,21 @@
     <h5>Etiqueta</h5>
     <%= f.select :etiqueta, Atuendo.etiqueta.keys, {} %>
     <div class = "row">
-      <% (0..3).each do |i| %>
-        <label class="col-12 ">
-          <br>
-          <% p = @prendas.where("categoria = ?",i) %>
-          <h6>Categoría <%= Prenda.categoria.key(i) %></h6>
-          <% if p.any? %>
-              <%= f.collection_select :prenda_ids, p, :id, :descripcion,prompt: true, multiple: true %>
-
-              <br>
-          <% else %>
-            <p><%= "No tiene prendas" %></p>
-          <% end %>
-        </label>
-      <%end %>
+      <%= f.fields_for :prenda_ids do |prendas| %>
+        <% (0..3).each do |i| %>
+          <label class="col-12 ">
+            <br>
+            <% p = @prendas.where("categoria = ?",i) %>
+            <h6>Categoría <%= Prenda.categoria.key(i) %></h6>
+            <% if p.any? %>
+                <%= prendas.collection_select nil, p, :id, :descripcion, { prompt: true }, { id: "prenda_ids_#{i}"} %>
+                <br>
+            <% else %>
+              <p><%= "No tiene prendas" %></p>
+            <% end %>
+          </label>
+        <% end %>
+      <% end %>
 
       <br>
 
