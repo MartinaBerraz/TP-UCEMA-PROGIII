@@ -2,21 +2,12 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <div class="d-flex flex-grow-1">
     <span class="w-100 d-lg-none d-block"><!-- hidden spacer to center brand on mobile --></span>
-    <a class="navbar-brand" href="#">
-      Dresscode
-    </a>
+    <a class="nav-link" <%= link_to "Dresscode", home_index_path %></a>
     <div class="w-100 text-right">
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#myNavbar7">
         <span class="navbar-toggler-icon"></span>
       </button>
     </div>
-  </div>
-  <div class="collapse navbar-collapse flex-grow-1 text-right" id="myNavbar7">
-    <ul class="navbar-nav ml-auto flex-nowrap">
-      <li class="nav-item">
-        <a class="nav-link" <%= link_to "Crear nueva prenda", new_prenda_path %></a>
-      </li>
-    </ul>
   </div>
 </nav>
 
@@ -33,8 +24,6 @@
         <p class="card-text"><%= @atuendo.etiqueta%></p>
         <p class="card-text">Rating: <%= @atuendo.clasificacion%></p>
 
-
-
           <% if @atuendo.prendas.any? %>
           <div class="row">
             <ul class="list-atuendos">
@@ -46,17 +35,10 @@
           <% else %>
             <h6 class="card-text">No hay prendas asociadas a este atuendo</h6>
           <%end %>
-
-
-
-        <div class="d-grid gap-2 d-md-flex align-self-end">
-          <a class="btn btn_sec" <%= link_to 'Volver', :back %></a>
-        </div>
-
       </div>
-
     </div>
-
   </div>
-
+</div>
+<div class="d-grid gap-2 d-md-flex align-self-end">
+  <a class="btn btn_sec" <%= link_to 'Volver', :back %></a>
 </div>

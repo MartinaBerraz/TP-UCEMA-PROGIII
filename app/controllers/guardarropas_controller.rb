@@ -4,8 +4,8 @@ class GuardarropasController < ApplicationController
 
   #/get/guardarropas/
   def index
-    @guardarropas=Guardarropa.all.all.page params[:page]
-
+    @guardarropas=Guardarropa.all.page params[:page]
+    @prendas=Prenda.all.page params[:page]
 
   end
 

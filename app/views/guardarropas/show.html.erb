@@ -2,25 +2,14 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <div class="d-flex flex-grow-1">
     <span class="w-100 d-lg-none d-block"><!-- hidden spacer to center brand on mobile --></span>
-    <a class="navbar-brand" href="#">
-      Dresscode
-    </a>
+    <a class="nav-link" <%= link_to "Dresscode", home_index_path %></a>
     <div class="w-100 text-right">
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#myNavbar7">
         <span class="navbar-toggler-icon"></span>
       </button>
     </div>
   </div>
-  <div class="collapse navbar-collapse flex-grow-1 text-right" id="myNavbar7">
-    <ul class="navbar-nav ml-auto flex-nowrap">
-      <li class="nav-item">
-        <a class="nav-link" <%= link_to "Administrar atuendos", guardarropa_atuendos_path(@guardarropa,@atuendos) %></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" <%= link_to "Crear nueva prenda", new_prenda_path %></a>
-      </li>
-    </ul>
-  </div>
+
 </nav>
 <div class="indexcontainer1">
 <section title="Prendas en este guardarropa" >
@@ -34,6 +23,17 @@
             <img src="<%= asset_path prenda.tipo %>" class="card-img-top" alt="...">
             <div class="card-body">
               <p class="card-title"><%== prenda.descripcion %></p>
+              <div class="card-icons">
+                <%= link_to :action => :show, :controller => 'prendas', :id => prenda.id do %>
+                  <%= "<i class='fas fa-eye'></i>".html_safe %>
+                <% end %>
+                <%= link_to :action => :edit, :controller => 'prendas', :id => prenda.id do %>
+                  <%="<i class='fas fa-edit'></i>".html_safe %>
+                <% end %>
+                <%= link_to :action => :destroy, :controller => 'prendas', :id => prenda.id , :method => :delete, :data => { :confirm => 'Are you sure?' } do %>
+                  <%= "<i class='fas fa-trash'></i>".html_safe %>
+                <% end %>
+              </div>
             </div>
           </div>
           </div>
@@ -47,6 +47,11 @@
 
 <section title="Atuendos en este guardarropa" >
   <h5>Sus atuendos</h5>
+
+  <%= link_to guardarropa_atuendos_path(@guardarropa,@atuendos) do %>
+    <%="<i class='far fa-plus-square'></i>".html_safe %>
+  <% end %>
+
   <div class="row row-cols-1 row-cols-md-6">
 
     <% if @guardarropa.atuendos.any? %>
@@ -56,6 +61,19 @@
               <img src="<%= asset_path atuendo.etiqueta %>" class="card-img-top">
               <div class="card-body">
                 <p class="card-title"><%== atuendo.nombre %></p>
+                <div class="card-icons">
+                  <%= link_to :action => :show, :id => atuendo.id do %>
+                    <%= "<i class='fas fa-eye'></i>".html_safe %>
+                  <% end %>
+
+                  <%= link_to :action => :edit, :id => atuendo.id do %>
+                    <%= "<i class='fas fa-edit'></i>".html_safe %>
+                  <% end %>
+
+                  <%= link_to 'Borrar', { :action => :destroy, :id => atuendo.id }, :method => :delete, :data => { :confirm => 'Are you sure?' }  do %>
+                    <%= "<i class='fas fa-trash'></i>".html_safe %>
+                  <% end %>
+                </div>
               </div>
             </div>
           </div>
@@ -67,6 +85,6 @@
 </section>
 </div>
 
-<div class="d-grid gap-2 d-md-flex align-self-end">
-  <a class="btn btn_sec" <%= link_to 'Volver', :back %></a>
+<div class="d-grid gap-2 d-md-flex justify-content-md-end">
+  <a class="btn btn_sec" <%= link_to 'Mis Guardarropas', :guardarropas %></a>
 </div>

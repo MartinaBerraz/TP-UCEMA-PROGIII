@@ -2,24 +2,12 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <div class="d-flex flex-grow-1">
     <span class="w-100 d-lg-none d-block"><!-- hidden spacer to center brand on mobile --></span>
-    <a class="navbar-brand" href="#">
-      Dresscode
-    </a>
+    <a class="nav-link" <%= link_to "Dresscode", home_index_path %></a>
     <div class="w-100 text-right">
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#myNavbar7">
         <span class="navbar-toggler-icon"></span>
       </button>
     </div>
-  </div>
-  <div class="collapse navbar-collapse flex-grow-1 text-right" id="myNavbar7">
-    <ul class="navbar-nav ml-auto flex-nowrap">
-      <li class="nav-item">
-        <a class="nav-link" <%= link_to "Home", home_index_path %></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" <%= link_to "Crear nueva prenda", new_prenda_path %></a>
-      </li>
-    </ul>
   </div>
 </nav>
 
@@ -29,7 +17,7 @@
   <%= form_for @atuendo do |f| %>
     <h5>Nombre</h5>
     <%= f.text_area :nombre %>
-    <%= f.text_area :guardarropa_id %>
+    <%= f.hidden_field :guardarropa_id %>
 
     <h5>Clasificación</h5>
     <%= f.select :clasificacion, 1..10, {} %>
@@ -37,24 +25,23 @@
     <h5>Etiqueta</h5>
     <%= f.select :etiqueta, Atuendo.etiqueta.keys, {} %>
     <div class = "row">
-      <% (0..3).each do |i| %>
-        <label class="col-12 ">
-          <br>
-          <% p = @prendas.where("categoria = ?",i) %>
-          <h6>Categoría <%= Prenda.categoria.key(i) %></h6>
-          <% if p.any? %>
-              <%= f.collection_select :prenda_ids, p, :id, :descripcion,prompt: true, multiple: true %>
-
+      <%= f.fields_for :prenda_ids do |prendas| %>
+        <% (0..3).each do |i| %>
+          <label class="col-12 ">
+            <br>
+            <% p = @prendas.where("categoria = ?",i) %>
+            <h6>Categoría <%= Prenda.categoria.key(i) %></h6>
+            <% if p.any? %>
+              <%= prendas.collection_select nil, p, :id, :descripcion, { prompt: true }, { id: "prenda_ids_#{i}"} %>
               <br>
-          <% else %>
-            <p><%= "No tiene prendas" %></p>
-          <% end %>
-        </label>
-      <%end %>
-
-      <br>
-
-    </div>
+            <% else %>
+              <p><%= "No tiene prendas" %></p>
+              <% end %>
+          </label>
+        <% end %>
+        <% end %>
+         <br>
+        </div>
     <div class="d-grid gap-2 d-md-flex justify-content-md-end">
       <%= f.submit :Create, class:"btn btn_sec"%>
       <a class="btn btn_sec" <%= link_to 'Cancelar', :back %></a>
