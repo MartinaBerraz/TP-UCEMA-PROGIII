@@ -74,13 +74,3 @@ function getWeather(){
 
 
 }
-
-
-
-
-
-
-
-
-
-
