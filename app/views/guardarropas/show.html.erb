@@ -2,7 +2,7 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <div class="d-flex flex-grow-1">
     <span class="w-100 d-lg-none d-block"><!-- hidden spacer to center brand on mobile --></span>
-    <a class="nav-link" <%= link_to "Dresscode", home_index_path %></a>
+    <a class="navbar-brand <%= link_to "Dresscode", home_index_path %></a>
     <div class="w-100 text-right">
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#myNavbar7">
         <span class="navbar-toggler-icon"></span>
@@ -46,11 +46,14 @@
 </section>
 
 <section title="Atuendos en este guardarropa" >
-  <h5>Sus atuendos</h5>
 
-  <%= link_to guardarropa_atuendos_path(@guardarropa,@atuendos) do %>
-    <%="<i class='far fa-plus-square'></i>".html_safe %>
-  <% end %>
+  <div class="crear_nueva">
+    <h4 class="navigation"> Mis Atuendos</h4>
+    <%= link_to guardarropa_atuendos_path(@guardarropa,@atuendos) do %>
+      <%="<i class='far fa-plus-square'></i>".html_safe %>
+    <% end %>
+
+  </div>
 
   <div class="row row-cols-1 row-cols-md-6">
 
@@ -62,8 +65,9 @@
               <div class="card-body">
                 <p class="card-title"><%== atuendo.nombre %></p>
                 <div class="card-icons">
-                  <%= link_to :action => :show, :id => atuendo.id do %>
-                    <%= "<i class='fas fa-eye'></i>".html_safe %>
+
+                  <%= link_to guardarropa_atuendo_path(@guardarropa,atuendo.id) do %>
+                    <%="<i class='fas fa-eye'></i>".html_safe %>
                   <% end %>
 
                   <%= link_to :action => :edit, :id => atuendo.id do %>

@@ -3,7 +3,7 @@
   <div class="d-flex flex-grow-1">
     <span class="w-100 d-lg-none d-block"><!-- hidden spacer to center brand on mobile --></span>
 
-      <a class="nav-link" <%= link_to "Dresscode", home_index_path %></a>
+      <a class="navbar-brand" <%= link_to "Dresscode", home_index_path %></a>
 
     <div class="w-100 text-right">
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#myNavbar7">
@@ -28,10 +28,14 @@
 </div>
 <script src="javascripts/application.js"></script>
 
-<h4 class="navigation"> Mis Guardarropas</h4>
-   <%= link_to new_guardarropa_path do %>
-     <%="<i class='far fa-plus-square'></i>".html_safe %>
-   <% end %>
+
+<div class="crear_nueva">
+  <h4 class="navigation"> Mis Guardarropas</h4>
+  <%= link_to new_guardarropa_path do %>
+    <%="<i class='far fa-plus-square'></i>".html_safe %>
+  <% end %>
+
+</div>
 
 <div class="indexcontainer">
 <div class="row row-cols-1 row-cols-md-3 row-cols-lg-6">
@@ -66,10 +70,13 @@
 </div>
 
 
-<h4 class="navigation"> Mis Prendas</h4>
-<%= link_to new_prenda_path do %>
-  <%="<i class='far fa-plus-square'></i>".html_safe %>
-<% end %>
+<div class="crear_nueva">
+  <h4 class="navigation"> Mis Prendas</h4>
+  <%= link_to new_prenda_path do %>
+    <%="<i class='far fa-plus-square'></i>".html_safe %>
+  <% end %>
+
+</div>
 <div class="indexcontainer">
   <div class="row row-cols-1 row-cols-md-3 row-cols-lg-6">
     <% @prendas.each do |prenda| %>

@@ -221,7 +221,7 @@ DEPENDENCIES
   byebug
   faraday
   jbuilder (~> 2.7)
-  jquery-rails
+  jquery-rails (~> 4.1, >= 4.1.1)
   json
   kaminari (~> 0.17.0)
   listen (~> 3.2)

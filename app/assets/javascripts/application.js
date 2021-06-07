@@ -14,6 +14,7 @@
 
 //= require jquery
 //= require jquery_ujs
+//= require_tree
 
 // Elementos
 const iconElement = document.querySelector(".weather-icon");

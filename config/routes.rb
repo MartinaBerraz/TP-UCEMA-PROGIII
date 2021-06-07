@@ -3,11 +3,6 @@ Rails.application.routes.draw do
   get 'home/index'
   root to: 'home#index'
 
-  resources :prendas
-  resources :atuendos
-  resources :guardarropas
-
-
 
   resources :guardarropas do
     resources :atuendos do
@@ -27,6 +22,8 @@ Rails.application.routes.draw do
     resources :atuendos
   end
 
-
+  resources :prendas
+  resources :atuendos
+  resources :guardarropas
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
