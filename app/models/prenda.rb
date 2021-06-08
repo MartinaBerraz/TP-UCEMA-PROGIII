@@ -1,6 +1,7 @@
 class Prenda < ApplicationRecord
 
     has_and_belongs_to_many :guardarropas
+    belongs_to :user
 
     enum tipo: [:pantalon, :remera, :pollera, :zapatillas, :camisa, :anteojos, :bufanda]
     enum categoria: [:superior, :inferior, :calzado, :accesorio]
