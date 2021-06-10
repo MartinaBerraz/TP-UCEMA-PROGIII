@@ -23,6 +23,7 @@ gem 'json'
 gem 'faraday'
 gem 'kaminari', '~> 0.17.0'
 gem 'devise'
+gem 'yarn', '~> 0.1.1'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
