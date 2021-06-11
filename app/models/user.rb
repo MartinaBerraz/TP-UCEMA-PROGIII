@@ -6,4 +6,10 @@ class User < ApplicationRecord
 
   has_many :prendas
   has_many :guardarropas
+
+  validates :password, length: { minimum: 8, maximum: 16 }
+
+  def admin?
+    admin
+  end
 end
