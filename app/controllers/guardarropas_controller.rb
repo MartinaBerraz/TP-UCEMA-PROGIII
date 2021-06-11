@@ -1,7 +1,7 @@
 class GuardarropasController < ApplicationController
 
   before_action :set_guardarropa, only: [:show, :update, :edit, :destroy]
-
+  before_action :authenticate_user!
   #/get/guardarropas/
   def index
     @guardarropas=Guardarropa.all.page params[:page]
