@@ -13,6 +13,8 @@
  *= require_tree .
  *= require_self
  */
+
+
 @media (min-width: 768px) {
     .navbar-brand.abs
     {
@@ -26,7 +28,8 @@
 html {
     font-size: 1rem;
   }
-  
+
+
 
 /* CSS for Footer ***/
 .dc-footer
@@ -97,6 +100,12 @@ a:link {
 
 }
 
+
+.card-icons {
+    align-items: center;
+    display: inline-flex;
+    justify-content: center;
+}
 .fas
 {
     font-size: 1rem;
@@ -106,12 +115,6 @@ a:link {
     display: inline-block;
     align-items: center;
 
-}
-.card-icons
-{
-    align-items: center;
-    display: inline-flex;
-    justify-content: center;
 }
 
 /* CSS footer end */
@@ -234,9 +237,4 @@ a:link {
     color: darkslategray;
     text-align: center;
 
-}
-
-.i.far.fa-plus-square
-{
-    font-size: 0.5rem;
 }
