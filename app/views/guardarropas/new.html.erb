@@ -38,10 +38,12 @@
         </label>
       <% end %>
     </div>
+    <%= f.number_field :user_id, id: :guardarropa_user_id, value:current_user.id,type: :hidden %>
 
     <div class="d-grid gap-2 d-md-flex justify-content-md-end">
       <%= f.submit :Create, class:"btn btn_sec"%>
       <a class="btn btn_sec" <%= link_to 'Cancelar', :back %></a>
     </div>
   <% end %>
+
 </div>

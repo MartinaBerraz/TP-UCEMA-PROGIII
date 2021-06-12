@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   get 'home/index'
   root to: 'home#index'
 
+  get 'users/index'
+
 
   resources :guardarropas do
     resources :atuendos do

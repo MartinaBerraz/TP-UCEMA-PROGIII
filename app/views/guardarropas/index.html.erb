@@ -4,12 +4,22 @@
     <span class="w-100 d-lg-none d-block"><!-- hidden spacer to center brand on mobile --></span>
 
       <a class="navbar-brand" <%= link_to "Dresscode", home_index_path %></a>
-       <a class="navbar-brand"<%= link_to "Log Out", destroy_user_session_path, method: :delete %></a>
+
+
     <div class="w-100 text-right">
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#myNavbar7">
         <span class="navbar-toggler-icon"></span>
       </button>
     </div>
+  </div>
+  <div class="collapse navbar-collapse flex-grow-1 text-right" id="myNavbar7">
+    <ul class="navbar-nav ml-auto flex-nowrap">
+      <li class="nav-item">
+        <a class="navbar-brand"<%= link_to "Log Out", destroy_user_session_path, method: :delete %></a>
+
+        <a class="navbar-brand"<%= link_to "Administrar Usuarios", users_index_path %></a>
+      </li>
+    </ul>
   </div>
 </nav>
 
@@ -90,10 +100,10 @@
               <%= link_to :action => :show, :controller => 'prendas', :id => prenda.id do %>
                 <%= "<i class='fas fa-eye'></i>".html_safe %>
               <% end %>
-              <%= link_to :action => :edit, :id => prenda.id do %>
+              <%= link_to :action => :edit, :controller => 'prendas', :id => prenda.id do %>
                 <%="<i class='fas fa-edit'></i>".html_safe %>
               <% end %>
-              <%= link_to :action => :destroy, :id => prenda.id , :method => :delete, :data => { :confirm => 'Are you sure?' } do %>
+              <%= link_to prenda , :method => :delete, :data => { :confirm => 'Are you sure?' } do %>
                 <%= "<i class='fas fa-trash'></i>".html_safe %>
               <% end %>
             </div>

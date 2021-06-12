@@ -46,6 +46,6 @@ class GuardarropasController < ApplicationController
 
   def guardarropa_params
 
-    params.require(:guardarropa).permit(:nombre, atuendos_ids:[], prenda_ids:[])
+    params.require(:guardarropa).permit(:nombre, :user_id, atuendos_ids:[],prenda_ids:[])
   end
 end

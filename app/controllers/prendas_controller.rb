@@ -1,7 +1,7 @@
 class PrendasController < ApplicationController
 
   before_action :set_prenda, only: [:show, :update, :edit, :destroy]
-
+  before_action :authenticate_user!
   # get /prendas/
   def index
 
@@ -54,6 +54,6 @@ class PrendasController < ApplicationController
 
   def prenda_params
 
-    params.require(:prenda).permit(:descripcion,:tipo, :categoria, :material, :cprimario, :csecundario)
+    params.require(:prenda).permit(:descripcion,:tipo, :categoria, :material, :cprimario, :csecundario, :user_id)
   end
 end

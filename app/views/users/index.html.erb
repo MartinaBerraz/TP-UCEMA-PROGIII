@@ -2,14 +2,20 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <div class="d-flex flex-grow-1">
     <span class="w-100 d-lg-none d-block"><!-- hidden spacer to center brand on mobile --></span>
-
     <a class="navbar-brand" <%= link_to "Dresscode", home_index_path %></a>
-    <a class="navbar-brand"<%= link_to "Log Out", destroy_user_session_path, method: :delete %></a>
     <div class="w-100 text-right">
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#myNavbar7">
         <span class="navbar-toggler-icon"></span>
       </button>
     </div>
+  </div>
+  <div class="collapse navbar-collapse flex-grow-1 text-right" id="myNavbar7">
+    <ul class="navbar-nav ml-auto flex-nowrap">
+      <li class="nav-item">
+        <a class="navbar-brand"<%= link_to "Log Out", destroy_user_session_path, method: :delete %></a>
+
+      </li>
+    </ul>
   </div>
 </nav>
 
@@ -28,25 +34,42 @@
 </div>
 <script src="javascripts/application.js"></script>
 
+<div class="crear_nueva">
+  <h4 class="navigation"> Listado de Usuarios</h4>
+</div>
 
 <div class="indexcontainer">
   <div class="row row-cols-1 row-cols-md-3 row-cols-lg-6">
-    <% @users.each do |user| %>
-      <div class="col md-4 mb-3 mt-2">
-        <div class="card h-100">
-          <div class="card-header">
-            <h5 class="elegant-color-text" id="serial">
-            </h5>
-          </div>
-          <div class="card-body">
-            <p class="card-title"><%== user.nombre %></p>
-
-          </div>
-        </div>
-      </div>
-    <% end %>
+    <table class="table table-striped">
+      <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Nombre</th>
+        <th scope="col">Email</th>
+        <th scope="col">Dia de Inscripcion</th>
+        <th scope="col">Cantidad de Prendas</th>
+        <th scope="col">Cantidad de Guardarropas</th>
+      </tr>
+      </thead>
+      <tbody>
+          <% @users.each do |user| %>
+            <tr>
+                <td><%= user.id %></td>
+                <td><%= user.nombre %></td>
+                <td><%= user.email %></td>
+                <td><%= user.created_at.strftime("%d-%m-%Y")  %></td>
+                <td><%= user.prendas.count %></td>
+                <td><%= user.guardarropas.count %></td>
+              </tr>
+            <% end %>
+      </tbody>
+    </table>
   </div>
 </div>
+
+
+
+
 <div class="d_pagination">
   <%= paginate @users %>
 </div>
