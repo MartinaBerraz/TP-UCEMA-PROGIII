@@ -15,6 +15,9 @@
       <li class="nav-item">
         <a class="navbar-brand"<%= link_to "Log Out", destroy_user_session_path, method: :delete %></a>
 
+      <% if current_user && current_user.admin? %>
+        <a class="navbar-brand"<%= link_to "Administrar Usuarios", users_index_path %></a>
+      <% end %>
       </li>
     </ul>
   </div>
@@ -43,6 +46,7 @@
 <div class="indexcontainer">
 <div class="row row-cols-1 row-cols-md-3 row-cols-lg-6">
   <% @prendas.each do |prenda| %>
+    <% if current_user.id == prenda.user_id %>
     <div class="col md-4 mb-3 mt-2">
       <div class="card h-100">
         <img src="<%= asset_path prenda.tipo %>" class="card-img-top" alt="...">
@@ -64,6 +68,7 @@
         </div>
       </div>
     </div>
+      <%end %>
   <% end %>
  </div>
 </div>

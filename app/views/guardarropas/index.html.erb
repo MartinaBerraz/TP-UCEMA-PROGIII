@@ -17,7 +17,9 @@
       <li class="nav-item">
         <a class="navbar-brand"<%= link_to "Log Out", destroy_user_session_path, method: :delete %></a>
 
+        <% if current_user && current_user.admin? %>
         <a class="navbar-brand"<%= link_to "Administrar Usuarios", users_index_path %></a>
+        <% end %>
       </li>
     </ul>
   </div>
@@ -39,6 +41,7 @@
 <script src="javascripts/application.js"></script>
 
 
+
 <div class="crear_nueva">
   <h4 class="navigation"> Mis Guardarropas</h4>
   <%= link_to new_guardarropa_path do %>
@@ -50,11 +53,11 @@
 <div class="indexcontainer">
 <div class="row row-cols-1 row-cols-md-3 row-cols-lg-6">
   <% @guardarropas.each do |guardarropa| %>
+    <% if current_user.id == guardarropa.user_id %>
     <div class="col md-4 mb-3 mt-2">
       <div class="card h-100">
         <div class="card-header">
-          <h5 class="elegant-color-text" id="serial">
-          </h5>
+          <h5 class="elegant-color-text" id="serial"></h5>
         </div>
         <div class="card-body">
           <p class="card-title"><%== guardarropa.nombre %></p>
@@ -72,6 +75,7 @@
         </div>
       </div>
     </div>
+    <% end %>
   <% end %>
 </div>
 </div>
@@ -90,6 +94,7 @@
 <div class="indexcontainer">
   <div class="row row-cols-1 row-cols-md-3 row-cols-lg-6">
     <% @prendas.each do |prenda| %>
+      <% if current_user.id == prenda.user_id %>
       <div class="col md-4 mb-3 mt-2">
         <div class="card h-100">
           <img src="<%= asset_path prenda.tipo %>" class="card-img-top" alt="...">
@@ -110,6 +115,7 @@
           </div>
         </div>
       </div>
+        <% end %>
     <% end %>
   </div>
 </div>
