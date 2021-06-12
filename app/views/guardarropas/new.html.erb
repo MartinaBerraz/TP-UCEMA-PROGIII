@@ -32,10 +32,13 @@
 
     <div class = "row">
       <% @prendas.each do |prenda| %>
-        <label class="col-6 cols-sm-3">
-          <%= f.check_box :prenda_ids, {multiple: true}, prenda.id, nil%>
-          <%= prenda.descripcion %>
-        </label>
+
+        <% if current_user.id == prenda.user_id %>
+          <label class="col-6 cols-sm-3">
+            <%= f.check_box :prenda_ids, {multiple: true}, prenda.id, nil%>
+            <%= prenda.descripcion %>
+          </label>
+          <% end %>
       <% end %>
     </div>
     <%= f.number_field :user_id, id: :guardarropa_user_id, value:current_user.id,type: :hidden %>
