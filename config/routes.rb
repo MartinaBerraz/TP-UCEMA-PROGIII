@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   root to: 'home#index'
 
   get 'users/index'
-
+  get 'search', to: "guardarropas#search"
 
   resources :guardarropas do
     resources :atuendos do

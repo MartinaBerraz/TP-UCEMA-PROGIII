@@ -5,4 +5,7 @@ class Guardarropa < ApplicationRecord
 
   accepts_nested_attributes_for :atuendos
   validates :nombre, presence: true
+
+
 end
+

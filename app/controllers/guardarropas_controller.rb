@@ -4,6 +4,7 @@ class GuardarropasController < ApplicationController
   before_action :authenticate_user!
   #/get/guardarropas/
   def index
+
     @guardarropas=Guardarropa.all.page params[:page]
     @prendas=Prenda.all.page params[:page]
 
@@ -11,6 +12,7 @@ class GuardarropasController < ApplicationController
 
   # get /guardarropas/:id
   def show
+
   end
 
   def edit
@@ -42,10 +44,13 @@ class GuardarropasController < ApplicationController
 
   def set_guardarropa
     @guardarropa = Guardarropa.find(params[:id])
+    @atuendos = Atuendo.find_by(guardarropa_id: @guardarropa.id)
   end
 
   def guardarropa_params
 
     params.require(:guardarropa).permit(:nombre, :user_id, atuendos_ids:[],prenda_ids:[])
   end
+
+
 end

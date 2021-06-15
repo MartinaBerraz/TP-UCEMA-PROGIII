@@ -4,9 +4,16 @@ class AtuendosController < ApplicationController
   before_action :set_atuendo, only: [:show, :update, :edit, :destroy]
 
   def index
-    @guardarropa = Guardarropa.find(params[:guardarropa_id])
-    @atuendos = @guardarropa.atuendos.all.all.page params[:page]
+    if params[:search]
+      @guardarropa = Guardarropa.find(params[:guardarropa_id])
 
+      @search_term = params[:search]
+      @atuendos= @guardarropa.atuendos.search_by(@search_term).page params[:page]
+    else
+      @guardarropa = Guardarropa.find(params[:guardarropa_id])
+     @atuendos = @guardarropa.atuendos.all.all.page params[:page]
+
+    end
   end
 
   def show
