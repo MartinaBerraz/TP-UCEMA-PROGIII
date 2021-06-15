@@ -25,7 +25,8 @@
   <%= form_for @atuendo do |f| %>
     <h5>Nombre</h5>
     <%= f.text_area :nombre %>
-    <%= f.text_area :guardarropa_id%>
+    <%= f.hidden_field :guardarropa_id %>
+
     <h5>Clasificación</h5>
     <%= f.select :clasificacion, 1..10, {} %>
 
@@ -42,7 +43,7 @@
           <h6>Categoría <%= Prenda.categoria.key(i) %></h6>
           <% p.each do |prenda| %>
             <% if contador == num %>
-              <%= f.check_box :prenda_ids, {multiple: true}, prenda.id, nil%>
+              <%= f.check_box :prenda_ids, {multiple: true}, prenda.id, nil %>
               <%= prenda.descripcion %>
 
             <% end %>

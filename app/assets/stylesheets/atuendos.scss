@@ -2,12 +2,32 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
+.aviso
+{
+  font-style: italic;
+
+}
+
+.MiG-container h5, .indexcontainer1 h5
+{
+  color: #666666;
+  margin-left: 2vw;
+  margin-top: 2vw;
+}
+.MiG-container h4
+{
+  color: #2E2F30;
+  margin-left: 1vw;
+  margin-top: 1vw;
+}
 
 .rate {
   float: left;
   height: 46px;
   padding: 0 10px;
 }
+
+
 .rate:not(:checked) > input {
   position:absolute;
   top:-9999px;

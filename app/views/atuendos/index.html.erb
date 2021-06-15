@@ -1,5 +1,4 @@
 
-<body>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <div class="d-flex flex-grow-1">
     <span class="w-100 d-lg-none d-block"><!-- hidden spacer to center brand on mobile --></span>
@@ -18,17 +17,27 @@
       <li class="nav-item">
         <a class="nav-link" <%= link_to "Quiero un atuendo", :action => :newrandom %></a>
       </li>
+
     </ul>
 
     <%= form_for "",url: guardarropa_atuendos_path(@guardarropa,@atuendos), role: "search", method: :get do %>
       <%= text_field_tag :search, @search_term, placeholder: "Search ..." %>
     <% end %>
+
+
+      <%= link_to  guardarropas_path, class: "user" do %>
+        <%= "<i class='fa fa-user'></i>".html_safe %>
+      <% end %>
+
   </div>
 </nav>
 
 
 
-
+<div class="MiG-container">
+<h4>Guardarropas de <%=@guardarropa.nombre %></h4>
+  <h5>Mis atuendos</h5>
+  <% if @atuendos.any? %>
   <div class="row row-cols-1 row-cols-md-3 row-cols-lg-6">
     <% @atuendos.each do |atuendo| %>
       <div class="col md-6 mb-4 mt-3">
@@ -54,9 +63,45 @@
           </div>
         </div>
       </div>
-    <% end %>
+      <% end %>
+      <% else %>
+      <h6 class="aviso" >No se hallaron atuendos</h6>
+    <%end %>
   </div>
 
 <div class="d_pagination">
   <%= paginate @atuendos %>
+</div>
+
+
+<div class="indexcontainer1">
+    <h5>Mis prendas</h5>
+    <div class="row row-cols-1 row-cols-md-6">
+      <% if @guardarropa.prendas.any? %>
+        <% @guardarropa.prendas.each do |prenda| %>
+          <div class="col md-4 mb-3 mt-2">
+            <div class="card h-100">
+              <img src="<%= asset_path prenda.tipo %>" class="card-img-top" alt="...">
+              <div class="card-body">
+                <p class="card-title"><%== prenda.descripcion %></p>
+                <div class="card-icons">
+                  <%= link_to :action => :show, :controller => 'prendas', :id => prenda.id do %>
+                    <%= "<i class='fas fa-eye'></i>".html_safe %>
+                  <% end %>
+                  <%= link_to :action => :edit, :controller => 'prendas', :id => prenda.id do %>
+                    <%="<i class='fas fa-edit'></i>".html_safe %>
+                  <% end %>
+                  <%= link_to :action => :destroy, :controller => 'prendas', :id => prenda.id , :method => :delete, :data => { :confirm => 'Are you sure?' } do %>
+                    <%= "<i class='fas fa-trash'></i>".html_safe %>
+                  <% end %>
+                </div>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      <% else %>
+        <h6 class="aviso" >No hay prendas asociadas a este guardarropa</h6>
+      <%end %>
+    </div>
+</div>
 </div>

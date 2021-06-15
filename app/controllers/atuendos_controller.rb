@@ -9,9 +9,10 @@ class AtuendosController < ApplicationController
 
       @search_term = params[:search]
       @atuendos= @guardarropa.atuendos.search_by(@search_term).page params[:page]
+
     else
       @guardarropa = Guardarropa.find(params[:guardarropa_id])
-     @atuendos = @guardarropa.atuendos.all.all.page params[:page]
+      @atuendos = @guardarropa.atuendos.all.all.page params[:page]
 
     end
   end

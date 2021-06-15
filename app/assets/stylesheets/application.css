@@ -233,8 +233,24 @@ a:link {
 
 }
 .aviso{
-    margin: 0.3vw 0.3vw 0.3vw 0vw;
-    color: darkslategray;
-    text-align: center;
+    margin: 0.3vw 0.3vw 1.5vw 0.9vw;
+    color: #2E2F30;
 
+}
+
+.user
+{
+    margin-left: 0.5vw;
+    font-size: 2vw;
+}
+
+a {
+    color: #EFEFEF;
+}
+
+.fas
+{
+    align-items: center;
+    justify-content: center;
+    margin-top: 2vw;
 }
