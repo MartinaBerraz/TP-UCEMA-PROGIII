@@ -5,8 +5,8 @@ class GuardarropasController < ApplicationController
   #/get/guardarropas/
   def index
 
-    @guardarropas=Guardarropa.all.page params[:page]
-    @prendas=Prenda.all.page params[:page]
+    @guardarropas=Guardarropa.where(user: current_user).page params[:page]
+    @prendas=Prenda.where(user: current_user).page params[:page]
 
   end
 

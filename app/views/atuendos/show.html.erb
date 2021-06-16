@@ -23,12 +23,6 @@
         <h4 class="card-title"><%= @atuendo.nombre%> </h4>
         <p class="card-text"><%= @atuendo.etiqueta%></p>
 
-        <p class="card-text">Rating:
-          <br>
-          <% (0..@atuendo.clasificacion).each do |i| %>
-            <i class="fas fa-star"></i>
-          <% end %>
-        </p>
 
           <% if @atuendo.prendas.any? %>
           <div class="row">
@@ -43,7 +37,7 @@
           <%end %>
         <p class="card-text">Rating:
           <br>
-        <% (0..@atuendo.clasificacion).each do |i| %>
+        <% (1..@atuendo.clasificacion).each do |i| %>
           <i class="fas fa-star"></i>
         <% end %>
         </p>

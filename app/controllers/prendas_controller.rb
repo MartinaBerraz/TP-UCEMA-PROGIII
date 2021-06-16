@@ -4,9 +4,7 @@ class PrendasController < ApplicationController
   before_action :authenticate_user!
   # get /prendas/
   def index
-
-    @prendas = Prenda.all.page params[:page]
-
+    @prendas=Prenda.where(user: current_user).page params[:page]
   end
 
 
