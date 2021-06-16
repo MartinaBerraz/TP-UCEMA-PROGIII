@@ -18,7 +18,7 @@ class PrendasController < ApplicationController
   def create
     Prenda.create! prenda_params # nota: prenda_params NO viene con el controller,
     # lo tenés que definir vos
-    redirect_to action: :index
+    redirect_to guardarropas_path
   end
 
   # get /prendas/new
@@ -40,7 +40,7 @@ class PrendasController < ApplicationController
 
   def destroy
     @prenda.destroy!
-    redirect_to :action => :index
+    redirect_to guardarropas_path
   end
 
 

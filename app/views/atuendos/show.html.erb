@@ -26,9 +26,9 @@
 
           <% if @atuendo.prendas.any? %>
           <div class="row">
-            <ul class="list-atuendos">
+            <ul class="list-atuendos" >
               <% @atuendo.prendas.each do |prenda| %>
-                <p> <%=link_to prenda.descripcion, prenda_path %></p>
+                <li> <%=link_to prenda.descripcion, prenda_path %></li>
               <% end %>
             </ul>
           </div>

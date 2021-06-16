@@ -7,8 +7,9 @@ class AtuendosController < ApplicationController
     if params[:search]
       @guardarropa = Guardarropa.find(params[:guardarropa_id])
 
-      @search_term = params[:search]
+      @search_term = Atuendo.etiqueta[(params[:search])]
       @atuendos= @guardarropa.atuendos.search_by(@search_term).page params[:page]
+
 
     else
       @guardarropa = Guardarropa.find(params[:guardarropa_id])
@@ -35,7 +36,7 @@ class AtuendosController < ApplicationController
 
   def create
     @atuendo= Atuendo.create(atuendo_params)
-    redirect_to controller: 'guardarropas', action: 'show', id:@atuendo.guardarropa_id
+    redirect_to guardarropa_atuendo_path(@atuendo.guardarropa_id,@atuendo)
   end
   def destroy
     @atuendo.destroy!

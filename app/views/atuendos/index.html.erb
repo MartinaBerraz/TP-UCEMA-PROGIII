@@ -15,7 +15,7 @@
       <form class="form-inline">
         <%= form_for "",url: guardarropa_atuendos_path(@guardarropa,@atuendos), role: "search", method: :get, class: "My-search" do %>
 
-        <%= select :etiqueta, Atuendo.etiqueta.values, Atuendo.etiqueta.keys, {},placeholder: "Search ..." %>
+        <%=select_tag :search,options_for_select(Atuendo.etiqueta.keys.to_a), placeholder: "Search ..." %>
 
         <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
         <% end %>
