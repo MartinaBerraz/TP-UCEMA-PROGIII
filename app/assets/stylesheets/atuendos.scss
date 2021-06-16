@@ -6,15 +6,17 @@
 
 .form-inline
 {
-  flex-flow: row wrap;
-  align-items: end;
-  justify-items: end;
+  flex-flow: row;
+  align-items: center;
+  justify-items: center;
   margin-left: 60vw;
+
 }
 
 .btn
 {
   margin-left: 0.5vw;
+  height: 50px;
 }
 
 .MiG-container h5, .indexcontainer1 h5
