@@ -222,7 +222,10 @@ a:link {
     justify-content: center;
 }
 
-
+.dropdown-menu
+{
+    background-color: #495057;
+}
 
 .navigation{
     margin: 30px 4px 4px 30px;
@@ -236,6 +239,7 @@ a:link {
     margin: 0.3vw 0.3vw 1.5vw 0.9vw;
     color: #2E2F30;
 
+    font-style: italic;
 }
 
 .user
@@ -253,4 +257,21 @@ a {
     align-items: center;
     justify-content: center;
     margin-top: 2vw;
+}
+
+.nav-item
+{
+    margin-left: 1vw;
+}
+
+.crear_nueva
+{
+    align-items: center;
+}
+
+.fa-caret-square-down
+{
+    margin-left: 1vw;
+    color: #666666;
+    margin-top: 1vw;
 }
