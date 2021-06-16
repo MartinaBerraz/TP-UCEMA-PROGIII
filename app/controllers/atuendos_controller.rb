@@ -3,19 +3,22 @@ class AtuendosController < ApplicationController
   before_action :set_guardarropa, except: [:create,:index]
   before_action :set_atuendo, only: [:show, :update, :edit, :destroy]
 
+  helper_method :sort_column, :sort_direction
   def index
     if params[:search]
       @guardarropa = Guardarropa.find(params[:guardarropa_id])
 
       @search_term = Atuendo.etiqueta[(params[:search])]
-      @atuendos= @guardarropa.atuendos.search_by(@search_term).page params[:page]
+      @atuendos= @guardarropa.atuendos.search_by(@search_term)
 
 
     else
       @guardarropa = Guardarropa.find(params[:guardarropa_id])
-      @atuendos = @guardarropa.atuendos.all.all.page params[:page]
+      @atuendos = @guardarropa.atuendos
 
     end
+
+    @atuendos= @atuendos.order(sort_column+" "+sort_direction).page params[:page]
   end
 
   def show
@@ -61,6 +64,14 @@ class AtuendosController < ApplicationController
 
   def atuendo_params
     params.require(:atuendo).permit(:nombre, :clasificacion, :etiqueta, :guardarropa_id,prenda_ids:[])
+  end
+
+  def sort_column
+    Atuendo.column_names.include?(params[:sort]) ? params[:sort] : "clasificacion"
+  end
+
+  def sort_direction
+    %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
   end
 
 end

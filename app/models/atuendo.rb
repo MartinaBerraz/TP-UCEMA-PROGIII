@@ -9,5 +9,6 @@ class Atuendo < ApplicationRecord
   def self.search_by(search_term)
     where("etiqueta = :search_term", search_term: search_term)
   end
+
 end
 

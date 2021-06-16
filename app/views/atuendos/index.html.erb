@@ -43,6 +43,9 @@
 <h4>Guardarropas de <%=@guardarropa.nombre %></h4>
 
   <div class="crear_nueva"><h5>Mis atuendos</h5>
+     <div class="orden">
+        <%= sortable "order" %>
+     </div>
         <a class='far fa-caret-square-down' data-toggle="dropdown">
         </a>
         <div class="dropdown-menu">
@@ -62,7 +65,7 @@
 
 
   <% if @atuendos.any? %>
-  <div class="row row-cols-1 row-cols-md-3 row-cols-lg-6">
+  <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4">
     <% @atuendos.each do |atuendo| %>
       <div class="col md-6 mb-4 mt-3">
         <div class="card h-100">
@@ -100,7 +103,7 @@
 
 <div class="indexcontainer1">
     <h5>Mis prendas</h5>
-    <div class="row row-cols-1 row-cols-md-6">
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4">
       <% if @guardarropa.prendas.any? %>
         <% @guardarropa.prendas.each do |prenda| %>
           <div class="col md-4 mb-3 mt-2">
@@ -128,4 +131,8 @@
       <%end %>
     </div>
 </div>
+  <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+    <a class="btn btn_sec" <%= link_to 'Mis Guardarropas', :guardarropas %></a>
+  </div>
 </div>
+
