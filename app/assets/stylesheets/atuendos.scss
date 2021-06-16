@@ -2,10 +2,19 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
-.aviso
-{
-  font-style: italic;
 
+
+.form-inline
+{
+  flex-flow: row wrap;
+  align-items: end;
+  justify-items: end;
+  margin-left: 60vw;
+}
+
+.btn
+{
+  margin-left: 0.5vw;
 }
 
 .MiG-container h5, .indexcontainer1 h5
@@ -14,7 +23,7 @@
   margin-left: 2vw;
   margin-top: 2vw;
 }
-.MiG-container h4
+.MiG-container h4, .indexcontainer h4
 {
   color: #2E2F30;
   margin-left: 1vw;

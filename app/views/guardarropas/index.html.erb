@@ -13,11 +13,14 @@
     </div>
   </div>
   <div class="collapse navbar-collapse flex-grow-1 text-right" id="myNavbar7">
-    <ul class="navbar-nav ml-auto flex-nowrap">
 
+    <ul class="navbar-nav ml-auto flex-nowrap">
+      <li class="nav-item">
+        <%= link_to "Log Out", destroy_user_session_path, method: :delete %>
+      </li>
         <% if current_user && current_user.admin? %>
         <li class="nav-item">
-        <a class="navbar-brand"<%= link_to "Administrar Usuarios", users_index_path %></a>
+        <%= link_to "Administrar Usuarios", users_index_path %>
         </li>
         <% end %>
 
@@ -62,7 +65,7 @@
         <div class="card-body">
           <p class="card-title"><%== guardarropa.nombre %></p>
           <div class="card-icons">
-          <%= link_to :action => :show, :id => guardarropa.id do %>
+          <%= link_to guardarropa_atuendos_path(guardarropa,@atuendos) do %>
             <%= "<i class='fas fa-eye'></i>".html_safe %>
           <% end %>
           <%= link_to :action => :edit, :id => guardarropa.id do %>
@@ -76,6 +79,7 @@
       </div>
     </div>
     <% end %>
+
   <% end %>
 </div>
 </div>
@@ -116,6 +120,7 @@
         </div>
       </div>
         <% end %>
+
     <% end %>
   </div>
 </div>

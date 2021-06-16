@@ -10,24 +10,29 @@
     </div>
   </div>
   <div class="collapse navbar-collapse flex-grow-1 text-right" id="myNavbar7">
+
+
+      <form class="form-inline">
+        <%= form_for "",url: guardarropa_atuendos_path(@guardarropa,@atuendos), role: "search", method: :get, class: "My-search" do %>
+
+        <%= select :etiqueta, Atuendo.etiqueta.values, Atuendo.etiqueta.keys, {},placeholder: "Search ..." %>
+
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        <% end %>
+      </form>
+
+
     <ul class="navbar-nav ml-auto flex-nowrap">
       <li class="nav-item">
-        <a class="nav-link" <%= link_to "Crear nuevo atuendo", :action => :new %></a>
+        <%= link_to "Log Out", destroy_user_session_path, method: :delete %>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" <%= link_to "Quiero un atuendo", :action => :newrandom %></a>
-      </li>
+      <% if current_user && current_user.admin? %>
+        <li class="nav-item">
+          <%= link_to "Administrar Usuarios", users_index_path %>
+        </li>
+      <% end %>
 
     </ul>
-
-    <%= form_for "",url: guardarropa_atuendos_path(@guardarropa,@atuendos), role: "search", method: :get do %>
-      <%= text_field_tag :search, @search_term, placeholder: "Search ..." %>
-    <% end %>
-
-
-      <%= link_to  guardarropas_path, class: "user" do %>
-        <%= "<i class='fa fa-user'></i>".html_safe %>
-      <% end %>
 
   </div>
 </nav>
@@ -36,7 +41,26 @@
 
 <div class="MiG-container">
 <h4>Guardarropas de <%=@guardarropa.nombre %></h4>
-  <h5>Mis atuendos</h5>
+
+  <div class="crear_nueva"><h5>Mis atuendos</h5>
+        <a class='far fa-caret-square-down' data-toggle="dropdown">
+        </a>
+        <div class="dropdown-menu">
+          <ul class="navbar-nav ml-auto flex-nowrap">
+            <li class="dropdown-item">
+               <%= link_to "Crear nuevo atuendo", :action => :new %>
+            </li>
+            <li class="dropdown-item">
+              <%= link_to "Quiero un atuendo", :action => :newrandom %>
+            </li>
+
+          </ul>
+        </div>
+
+  </div>
+
+
+
   <% if @atuendos.any? %>
   <div class="row row-cols-1 row-cols-md-3 row-cols-lg-6">
     <% @atuendos.each do |atuendo| %>
@@ -100,7 +124,7 @@
           </div>
         <% end %>
       <% else %>
-        <h6 class="aviso" >No hay prendas asociadas a este guardarropa</h6>
+        <h6 class="aviso" >No se hallaron prendas</h6>
       <%end %>
     </div>
 </div>

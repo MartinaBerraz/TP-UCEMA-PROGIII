@@ -7,7 +7,7 @@ class Atuendo < ApplicationRecord
   validates_presence_of :guardarropa
 
   def self.search_by(search_term)
-    where("nombre LIKE :search_term", search_term: "%#{search_term}%")
+    where("Atuendo.etiqueta LIKE :search_term", search_term: "%#{search_term}%")
   end
 end
 

@@ -1,3 +1,10 @@
+<section class="cont-img">
+  <img src="<%= asset_path 'log.jpg' %>"> <!-- Es un comando de ruby -->
+</section>
+<div class="registration">
+<div class="wrapper">
+  <div class="loginbox">
+
 <h2>Forgot your password?</h2>
 
 <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
@@ -9,8 +16,11 @@
   </div>
 
   <div class="actions">
-    <%= f.submit "Send me reset password instructions" %>
+    <%= f.submit "Send mail to reset password" %>
   </div>
 <% end %>
 
 <%= render "devise/shared/links" %>
+  </div>
+</div>
+</div>
