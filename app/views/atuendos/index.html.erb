@@ -12,15 +12,6 @@
   <div class="collapse navbar-collapse flex-grow-1 text-right" id="myNavbar7">
 
 
-      <form class="form-inline">
-        <%= form_for "",url: guardarropa_atuendos_path(@guardarropa,@atuendos), role: "search", method: :get, class: "My-search" do %>
-
-        <%=select_tag :search,options_for_select(Atuendo.etiqueta.keys.to_a), placeholder: "Search ..." %>
-
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-        <% end %>
-      </form>
-
 
     <ul class="navbar-nav ml-auto flex-nowrap">
       <li class="nav-item">
@@ -37,15 +28,27 @@
   </div>
 </nav>
 
+<div class="wrap">
 
+<%= search_form_for (@q), url: guardarropa_atuendos_path(@guardarropa,@guardarropa.atuendos) do |f| %>
+
+  <%= f.label :nombre_cont, "Nombre" %>
+  <%= f.search_field :nombre_cont %>
+
+
+    <div class="container">
+  <%= f.select(:etiqueta_eq, options_for_select(Atuendo.etiqueta.map {|k, v| [k.humanize.capitalize, v]}, f.object.etiqueta_eq), { include_blank: true }, {class: "form-control" }) %>
+    </div>
+  <%= f.submit %>
+
+    <%= sort_link(@q, :clasificacion, "clasificacion",default_order: :asc) %>
+<% end %>
+</div>
 
 <div class="MiG-container">
 <h4>Guardarropas de <%=@guardarropa.nombre %></h4>
 
   <div class="crear_nueva"><h5>Mis atuendos</h5>
-     <div class="orden">
-        <%= sortable "order" %>
-     </div>
         <a class='far fa-caret-square-down' data-toggle="dropdown">
         </a>
         <div class="dropdown-menu">

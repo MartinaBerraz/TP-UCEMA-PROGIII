@@ -4,15 +4,38 @@
 
 
 
-.form-inline
+.wrap
 {
   flex-flow: row;
-  align-items: center;
-  justify-items: center;
-  margin-left: 60vw;
 
+  display: inline;
+  justify-content: center;
+  background-color:#343a40;
+  float: right;
+  margin-top: 2vw;
+  border-radius: 10px;
 }
 
+.wrap input, .wrap label
+{
+  display: inline-block;
+  margin: 1vw;
+}
+.wrap input
+{
+  border: 2px solid #BBBBBB;
+  border-right: none;
+  padding: 5px;
+  border-radius: 5px;
+  outline: none;
+  color: #9DBFAF;
+}
+
+
+.wrap label
+{
+  color: #CCCCCC;
+}
 .btn
 {
   margin-left: 0.5vw;
