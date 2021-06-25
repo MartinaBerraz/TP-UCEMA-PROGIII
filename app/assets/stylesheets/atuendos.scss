@@ -67,3 +67,8 @@
 {
   color: #2E2F30;
 }
+
+// related with icon dropdown
+.dropdown-toggle::after {
+  display: none !important;
+}

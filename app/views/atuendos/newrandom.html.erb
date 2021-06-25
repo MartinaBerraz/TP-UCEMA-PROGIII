@@ -33,33 +33,40 @@
     <h5>Etiqueta</h5>
     <%= f.select :etiqueta, Atuendo.etiqueta.keys, {} %>
 
-    <div class = "row">
+    <h5> Prendas</h5>
+    <div class="indexcontainer">
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4">
       <% (0..3).each do |i| %>
         <label class="col-12 ">
           <% p = @prendas.where("categoria = ?",i) %>
           <% num = rand(p.count)  %>
           <% contador=0 %>
           <br>
-          <h6>Categoría <%= Prenda.categoria.key(i) %></h6>
           <% p.each do |prenda| %>
             <% if contador == num %>
-              <%= f.check_box :prenda_ids, {multiple: true}, prenda.id, nil %>
-              <%= prenda.descripcion %>
-
+              <%= f.hidden_field :prenda_ids, :multiple => true, :value => prenda.id %>
+              <div class="col md-4 mb-3 mt-2">
+                <div class="card h-100">
+                  <img class="card-img-top"
+                           src="<%= asset_path prenda.tipo %>" alt="Card image cap">
+                  <div class="card-body">
+                        <h6 class="card-title"><%== prenda.descripcion%> </h6>
+                        <h6 class="card-text"><%== prenda.tipo%></h6>
+                        <h6 class="card-text"><%= prenda.categoria %></small></h6>
+                   </div>
+                </div>
+              </div>
             <% end %>
-
             <% contador+=1 %>
             <br>
-
           <%end %>
         </label>
-
       <%end %>
-
     </div>
     <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-      <%= f.submit :create, class:"btn btn_sec"%>
+      <%= f.submit :Create, class:"btn btn_sec"%>
       <a class="btn btn_sec" <%= link_to 'Cancelar', :back %></a>
     </div>
   <% end %>
+</div>
 </div>
