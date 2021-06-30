@@ -12,6 +12,15 @@
       </button>
     </div>
   </div>
+  <div class="clima-full-container " >
+    <div id='clima-loader' hidden=true></div>
+    <div id="city-container"></div>
+    <div id="icon-container" ></div>
+    <div id="temp-container"></div>
+
+
+  </div>
+  <script src="javascripts/application.js"></script>
   <div class="collapse navbar-collapse flex-grow-1 text-right" id="myNavbar7">
 
     <ul class="navbar-nav ml-auto flex-nowrap">
@@ -33,15 +42,7 @@
   <img src="<%= asset_path 'guardarropa.jpg' %>"> <!-- Es un comando de ruby -->
 </section>
 
-<div class="clima-full-container " >
- <div id='clima-loader' hidden=true></div>
- <div id="city-container"></div>
-  <div id="icon-container" ></div>
- <div id="temp-container"></div>
-<div id="clima-container"></div>
 
-</div>
-<script src="javascripts/application.js"></script>
 
 
 
@@ -101,8 +102,7 @@
       <% if current_user.id == prenda.user_id %>
       <div class="col md-4 mb-3 mt-2">
         <div class="card h-100">
-
-          <img src="<%= image_path prenda.tipo %>" class="card-img-top" alt="...">
+         <img src="<%= image_path prenda.tipo %>" class="card-img-top" alt="...">
           <div class="card-body">
             <h5 class="card-title"><%== prenda.tipo%></h5>
             <p class="card-text"><%== prenda.descripcion%></p>

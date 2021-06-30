@@ -53,7 +53,7 @@ function getWeather(){
 
 
             document.getElementById('city-container').innerHTML = cityHTML;
-            document.getElementById('clima-container').innerHTML = climaHTML;
+
             document.getElementById('temp-container').innerHTML = climatempHTML;
             document.getElementById('icon-container').innerHTML = `<img src="../../icons/${iconid}.png"/>`;
 

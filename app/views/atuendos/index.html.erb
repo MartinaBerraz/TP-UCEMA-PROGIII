@@ -11,6 +11,16 @@
       </button>
     </div>
   </div>
+  <div class="clima-full-container " >
+    <div id='clima-loader' hidden=true></div>
+    <div id="city-container"></div>
+    <div id="icon-container" ></div>
+    <div id="temp-container"></div>
+<!--#CAMBIO DE LUGAR EL WEATHER AL NAVBAR Y ESPECIFICA MENOS DATOS(TAN SOLO LA CIUDAD Y EL CLIMA) PARA QUE SE AMOLDE MEJOR
+    #AL TAMAÑO DE LA BARRA DE NAVEGACION -->
+
+  </div>
+  <script src="javascripts/application.js"></script>
   <div class="collapse navbar-collapse flex-grow-1 text-right" id="myNavbar7">
 
 
@@ -59,7 +69,10 @@
                <%= link_to "Crear nuevo atuendo", :action => :new %>
             </li>
             <li class="dropdown-item">
-              <%= link_to "Quiero un atuendo", :action => :newrandom %>
+              <%= link_to "Nuevo atuendo aleatorio", :action => :newrandom %>
+            </li>
+            <li class="dropdown-item">
+              <%= link_to "Generar por el clima", :action => :newrandom %>
             </li>
 
           </ul>
