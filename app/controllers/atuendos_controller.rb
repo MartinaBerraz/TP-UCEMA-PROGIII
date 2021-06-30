@@ -22,7 +22,7 @@ class AtuendosController < ApplicationController
     @guardarropa = Guardarropa.find(params[:guardarropa_id])
     @q = @guardarropa.atuendos.ransack(params[:q])
     @atuendos = @q.result(distinct: true).page(params[:page])
-
+    @prendas=@guardarropa.prendas.where(user: current_user).page params[:page]
 
   end
 

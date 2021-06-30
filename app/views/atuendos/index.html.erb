@@ -109,8 +109,8 @@
 <div class="indexcontainer1">
     <h5>Mis prendas</h5>
     <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4">
-      <% if @guardarropa.prendas.any? %>
-        <% @guardarropa.prendas.each do |prenda| %>
+      <% if @prendas.any? %>
+        <% @prendas.each do |prenda| %>
           <div class="col md-4 mb-3 mt-2">
             <div class="card h-100">
               <img src="<%= asset_path prenda.tipo %>" class="card-img-top" alt="...">
@@ -135,6 +135,10 @@
         <h6 class="aviso" >No se hallaron prendas</h6>
       <%end %>
     </div>
+  <div class="d_pagination">
+    <%= paginate @prendas %>
+  </div>
+
 </div>
   <div class="d-grid gap-2 d-md-flex justify-content-md-end">
     <a class="btn btn_sec" <%= link_to 'Mis Guardarropas', :guardarropas %></a>

@@ -22,15 +22,13 @@
       <div class="card-body">
         <h4 class="card-title"><%= @atuendo.nombre%> </h4>
         <p class="card-text"><%= @atuendo.etiqueta%></p>
-
-
           <% if @atuendo.prendas.any? %>
           <div class="row">
-            <ul class="list-atuendos" >
+            <div class="list-atuendos" >
               <% @atuendo.prendas.each do |prenda| %>
-                <li> <%=link_to prenda.descripcion, prenda_path %></li>
+                <p> <%=link_to prenda.descripcion, prenda_path %></p>
               <% end %>
-            </ul>
+            </div>
           </div>
           <% else %>
             <h6 class="card-text">No hay prendas asociadas a este atuendo</h6>
